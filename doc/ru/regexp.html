@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>DC - Синтаксис регулярных выражений</title>
-    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
     <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
@@ -10,13 +10,13 @@
   <body>
     <a name="topofpage"></a>
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
-      <div id="global-nav" class="nav"><a title="Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Вики</a></div>
+      <div id="global-nav" class="nav"><a title="Домашняя страница Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Домашняя страница</a> | <a title="Вики Double Commander" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Вики</a></div>
     </div>
     <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="cmds.html">Пред.</a> | <a title="Следующая страница" href="lua.html">След.</a></div></div>
 
     <div class="dchelpage">
       <div>
-        <h1>2.10. Синтаксис регулярных выражений</h1>
+        <h1>2.11. Синтаксис регулярных выражений</h1>
       </div>
 
       <div>
@@ -38,7 +38,7 @@
               <dt>5.7. <a href="#meta-back">Метасимволы - обратные ссылки</a></dt>
             </dl>
           </dd>
-          <dt>6. <a href="#modifiers">Модификаторы (расширения Perl)</a></dt>
+          <dt>6. <a href="#modifiers">Модификаторы</a></dt>
         </dl>
       </div>
 
@@ -417,7 +417,7 @@
         </table>
         <p>Небольшое пояснение по поводу "жадности".</p>
         <p>"Жадные" варианты повторителей пытаются захватить как можно б<i>о</i>льшую часть входного текста, в то время как "не жадные"&nbsp;&mdash; как можно меньшую.</p>
-        <p>Например, "b+" как и "b*" примененные к входной строке "abbbbc" найдут "bbbb", в то время как "b+?" найдет только "b", а "b*?"&nbsp;&mdash; вообще пустую строку; "b{2,3}?" найдет "bb", в то время как "b{2,3}" найдет "bbb".</p>
+        <p>Например, "b+" как и "b*" примененные к входной строке "abbbbc" найдут "bbbb", в то время как "b+?" найдёт только "b", а "b*?"&nbsp;&mdash; вообще пустую строку; "b{2,3}?" найдёт "bb", в то время как "b{2,3}" найдёт "bbb".</p>
         <p>Вы можете переключить все повторители в выражении в "не жадный" режим, воспользовавшись <a href="#modifiers">модификатором g</a>.</p>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
@@ -500,14 +500,14 @@
       </div>
 
       <div>
-        <h2>6. <a name="modifiers">Модификаторы (расширения Perl)</a></h2>
+        <h2>6. <a name="modifiers">Модификаторы</a></h2>
         <p class="bold">(?imsxr-imsxr)</p>
         <p>Модификаторы служат для изменения режимов работы регулярных выражений.</p>
         <p>Любой модификатор может располагаться внутри регулярного выражения с помощью специальной конструкции <tt>(?...)</tt>.</p>
         <p>Если эта конструкция расположена внутри подвыражения, то она действует только на это подвыражение.</p>
         <dl>
           <dt><tt>i</tt></dt>
-          <dd>Регистронезависимый режим (по умолчанию используется выбранный в ОС язык по умолчанию).</dd>
+          <dd>Регистронезависимый режим (используются установленные в вашей системе языковые настройки).</dd>
           <dt><tt>m</tt></dt>
           <dd>Воспринимать входной текст как многострочный, при этом метасимволы "^" и "$" будут совпадать не только в начале и конце текста в целом, но и в начале и в конце всех имеющихся в тексте строк (см. также <a href="#meta-line">Разделители строк</a>).</dd>
           <dt><tt>s</tt></dt>
@@ -559,84 +559,84 @@
     </div>
     <div class="footer"><div class="nav"><a title="Начало" href="index.html">Начало</a> | <a title="Предыдущая страница" href="cmds.html">Пред.</a> | <a title="Следующая страница" href="lua.html">След.</a></div></div>
     <div class="checker">
-	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
-	</div>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </body>
 </html>

@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>DC - Lua Scripting</title>
-    <link rel="STYLESHEET" type="text/css" href="doublecmd.css">
+    <link rel="stylesheet" type="text/css" href="doublecmd.css">
     <link rel="shortcut icon" href="../../pixmaps/common/favicon.ico">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
@@ -10,13 +10,13 @@
   <body>
     <a name="topofpage"></a>
     <div class="header"><a href="index.html"><img src="../../pixmaps/common/dclogo2017.png" alt="Double Commander" height="48" width="374"></a>
-      <div id="global-nav" class="nav"><a title="Double Commander" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
+      <div id="global-nav" class="nav"><a title="Double Commander Home Page" href="https://doublecmd.sourceforge.io/" target="_blank">Homepage</a> | <a title="Double Commander Wiki" href="https://github.com/doublecmd/doublecmd/wiki" target="_blank">Wiki</a></div>
     </div>
     <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="regexp.html">Previous</a> | <a title="Next page" href="commandline.html">Next</a></div></div>
 
     <div class="dchelpage">
       <div>
-        <h1>2.11. Lua Scripting</h1>
+        <h1>2.12. Lua Scripting</h1>
       </div>
 
       <div>
@@ -151,10 +151,10 @@
         <p>In this example, we wrote a simple script that will do the following:</p>
         <ol>
           <li>focus to right panel</li>
-          <li>close all openened tabs</li>
+          <li>close all opened tabs</li>
           <li>switch to a specific folder</li>
           <li>focus the left panel</li>
-          <li>close all openened tabs</li>
+          <li>close all opened tabs</li>
           <li>switch to a specific folder</li>
           <li>open a new tab</li>
           <li>switch to a specific folder</li>
@@ -168,7 +168,7 @@
 <span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_CloseAllTabs"</span><span class="luasbl">)</span>
 
 <span class="luacmt">-- 3. Switch to a specific directory.</span>
-<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span>, <span class="luastr">"e:\\FakeKey\\Documents\\Music"</span><span class="luasbl">)</span>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span>, <span class="luastr">"E:\\FakeKey\\Documents\\Music"</span><span class="luasbl">)</span>
 
 <span class="luacmt">-- 4. Focus on left panel.</span>
 <span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_FocusSwap"</span>, <span class="luastr">"side=left"</span><span class="luasbl">)</span>
@@ -183,15 +183,15 @@
 <span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_NewTab"</span><span class="luasbl">)</span>
 
 <span class="luacmt">-- 8. Switch to a specific directory.</span>
-<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span>, <span class="luastr">"e:\\VirtualMachines\\ShareFolder"</span><span class="luasbl">)</span></pre>
+<span class="mark">DC.ExecuteCommand</span><span class="luasbl">(</span><span class="luastr">"cm_ChangeDir"</span>, <span class="luastr">"E:\\VirtualMachines\\ShareFolder"</span><span class="luasbl">)</span></pre>
 
         <p>Using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>, we may configure a tool bar button that will execute our script.</p>
-        <p>Assuming this script file is <code>e:\scripts\lua\music.lua</code>, we could have the button configured this way:</p>
-        <p class="figure"><img class="largeimage" title="Invoking a lua script from toolbar" alt="Invoking a lua script from toolbar" src="images/imgDC/luaimg1.png" width="542" height="290"></p>
+        <p>Assuming this script file is <code>E:\scripts\lua\music.lua</code>, we could have the button configured this way:</p>
+        <p class="figure"><img class="largeimage" title="Invoking a lua script from toolbar" alt="Invoking a lua script from toolbar" src="images/imgDC/luaimg1.png" width="560" height="290"></p>
 
         <p>Also, we may use the internal Double Commander Editor for editing our scripts.</p>
         <p>If filename has <code>.lua</code> file extension, it will be recognized by internal editor and it will provide us syntax highlighting specific for this Lua language:</p>
-        <p class="figure"><img class="largeimage" title="Lua syntax highlighting with internal editor" alt="Lua syntax highlighting with internal editor" src="images/imgDC/luaimg2.png" width="676" height="498"></p>
+        <p class="figure"><img class="largeimage" title="Lua syntax highlighting with internal editor" alt="Lua syntax highlighting with internal editor" src="images/imgDC/luaimg2.png" width="660" height="480"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -206,14 +206,14 @@
             <td class="varcell"><div class="firstcolumnaleft">SysUtils.Sleep</div></td>
             <td class="hintcell">
               <p class="definition">SysUtils.Sleep(Milliseconds)</p>
-              <p>Suspends the execution of the script for the specified number of <var>Milliseconds</var>.<BR>After the specified period has expired, script execution resumes.</p>
+              <p>Suspends the execution of the script for the specified number of <var>Milliseconds</var>.<br>After the specified period has expired, script execution resumes.</p>
             </td>
           </tr>
           <tr>
             <td class="varcell"><div class="firstcolumnaleft">SysUtils.GetTickCount</div></td>
             <td class="hintcell">
               <p class="definition">SysUtils.GetTickCount()</p>
-              <p>Returns an increasing clock tick count. It is useful for time measurements, but no assumtions should be made as to the interval between the ticks.</p>
+              <p>Returns an increasing clock tick count. It is useful for time measurements, but no assumptions should be made as to the interval between the ticks.</p>
             </td>
           </tr>
           <tr>
@@ -264,7 +264,7 @@
               <p>Finds the next occurrence of a search sequence initiated by <var>FindFirst</var> by re-using the <var>Handle</var> returned previously.</p>
               <p>Returned <var>Result</var> will be non-nil if a file or directory is found and will be <var>nil</var> otherwise.</p>
               <p>The same notes mentionned for <code>SysUtils.FindFirst</code> applied here.</p>
-              <p><B><span class="uline">Remark:</span> The last <code>SysUtils.FindNext</code> call must always be followed by a <code>SysUtils.FindClose</code> call with the same <var>Handle</var>. Failure to do so will result in memory loss.</b></p>
+              <p><b><span class="uline">Remark:</span> The last <code>SysUtils.FindNext</code> call must always be followed by a <code>SysUtils.FindClose</code> call with the same <var>Handle</var>. Failure to do so will result in memory loss.</b></p>
             </td>
           </tr>
           <tr>
@@ -369,35 +369,35 @@
           <tr class="rowcategorytitle"><th colspan="2">Constants uses in SysUtils.FileGetAttr returned value</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Value</th><th class="categorydesccolumn">Signification</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000001<BR><SMALL class="firstcolumnaleft">faReadOnly</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000001<br><small class="firstcolumnaleft">faReadOnly</small></div></td>
             <td class="hintcell">The file is read-only.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000002<BR><SMALL class="firstcolumnaleft">faHidden</small></div></td>
-            <td class="hintcell">The file is hidden.<BR>In Unix/Linux, this means that the filename starts with a dot.</td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000002<br><small class="firstcolumnaleft">faHidden</small></div></td>
+            <td class="hintcell">The file is hidden.<br>In Unix/Linux, this means that the filename starts with a dot.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000004<BR><SMALL class="firstcolumnaleft">faSysFile</small></div></td>
-            <td class="hintcell">The file is a system file.<BR>In Unix/Linux, this means that the file is a character, block or FIFO file.</td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000004<br><small class="firstcolumnaleft">faSysFile</small></div></td>
+            <td class="hintcell">The file is a system file.<br>In Unix/Linux, this means that the file is a character, block or FIFO file.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000008<BR><SMALL class="firstcolumnaleft">faVolumeId</small></div></td>
-            <td class="hintcell">Volume Label.<BR>Only for DOS/Windows on a plain FAT (not VFAT or Fat32) filesystem.</td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000008<br><small class="firstcolumnaleft">faVolumeId</small></div></td>
+            <td class="hintcell">Volume Label.<br>Only for DOS/Windows on a plain FAT (not VFAT or Fat32) filesystem.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000010<BR><SMALL class="firstcolumnaleft">faDirectory</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000010<br><small class="firstcolumnaleft">faDirectory</small></div></td>
             <td class="hintcell">File is a directory.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000020<BR><SMALL class="firstcolumnaleft">faArchive</small></div></td>
-            <td class="hintcell">File is archived.<BR>Not possible on Unix/Linux.</td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000020<br><small class="firstcolumnaleft">faArchive</small></div></td>
+            <td class="hintcell">File is archived.<br>Not possible in Unix/Linux.</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x00000400<BR><SMALL class="firstcolumnaleft">faSymLink</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x00000400<br><small class="firstcolumnaleft">faSymLink</small></div></td>
             <td class="hintcell">File is a symbolic link.</td>
           </tr>
           <tr>
-            <td colspan="2"><B>Note: In case of error, -1 is returned.</b>
+            <td colspan="2"><b>Note: In case of error, -1 is returned.</b>
           </tr>
         </table>
         <p>See an example in the <a href="#exampleattr">next section</a>.</p>
@@ -414,7 +414,7 @@
 
 <span class="luakyw">if</span> <span class="luasbl">#</span>params <span class="luasbl">==</span> <span class="luanum">1</span> <span class="luakyw">then</span> <span class="luacmt">-- We got at least one parameter?</span>
   myfileattr <span class="luasbl">=</span> <span class="mark">SysUtils.FileGetAttr</span><span class="luasbl">(</span>params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">])</span>
-  <span class="luakyw">if</span> myfileattr <span class="luasbl">></span> <span class="luanum">0</span> <span class="luakyw">then</span> <span class="luacmt">-- We got a valid attribut?</span>
+  <span class="luakyw">if</span> myfileattr <span class="luasbl">&gt;</span> <span class="luanum">0</span> <span class="luakyw">then</span> <span class="luacmt">-- We got a valid attribute?</span>
     <span class="luakyw">if</span> math<span class="luasbl">.</span><span class="luafct">floor</span><span class="luasbl">(</span>myfileattr <span class="luasbl">/</span> <span class="luanum">0x00000010</span><span class="luasbl">)</span> <span class="luasbl">%</span> <span class="luanum">2</span> <span class="luasbl">~=</span> <span class="luanum">0</span> <span class="luakyw">then</span>
       <span class="luacmt">-- bit 4 is set? So it's a directory.</span>
       DC.ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_NewTab"</span><span class="luasbl">)</span>
@@ -423,10 +423,10 @@
   <span class="luakyw">end</span>
 <span class="luakyw">end</span></pre>
 
-        <p>In the above example, the <var>param[1]</var> is the 1st parameter passed to the script.</p>
+        <p>In the above example, the <var>params[1]</var> is the 1st parameter passed to the script.</p>
         <p>When using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>, it will will be the first parameter passed after the script filename.</p>
         <p>So in our example, we may program a sample toolbar button like the following:</p>
-        <p class="figure"><img class="largeimage" title="Parameter with cm_ExecuteScript" alt="Parameter with cm_ExecuteScript" src="images/imgDC/luaimg3.png" width="562" height="298"></p>
+        <p class="figure"><img class="largeimage" title="Parameter with cm_ExecuteScript" alt="Parameter with cm_ExecuteScript" src="images/imgDC/luaimg3.png" width="560" height="290"></p>
         <p>In this example, the parameter <var>%"0%p</var> will be passed to the script. This will represent, unquoted, the filename of the item currently selected in the active panel at the moment we press the toolbar button.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -461,11 +461,11 @@
 <span class="luakyw">end</span></pre>
         <p>In the above example, we need to pass two parameters to our script:</p>
         <ol>
-          <li><var>param[1]</var> - which is the directory we want the content</li>
-          <li><var>param[2]</var> - which is the outputfilename to store the result</li>
+          <li><var>params[1]</var> - which is the directory we want the content</li>
+          <li><var>params[2]</var> - which is the outputfilename to store the result</li>
         </ol>
         <p>So it's easy to configure a toolbar button using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> and pass the parameter to accomplish all this.</p>
-        <p class="figure"><img class="largeimage" title="Parameter with cm_ExecuteScript" alt="Parameter with cm_ExecuteScript" src="images/imgDC/luaimg4.png" width="558" height="260"></p>
+        <p class="figure"><img class="largeimage" title="Parameter with cm_ExecuteScript" alt="Parameter with cm_ExecuteScript" src="images/imgDC/luaimg4.png" width="560" height="262"></p>
         <p>In this example, the parameter <var>%"0%Ds</var> will be passed to the script as the first parameter. This will represent, unquoted, the directory displayed by the active panel.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -510,7 +510,7 @@
                 <li><code>Clipbrd.SetAsText("Welcome to Double Commander!")</code></li>
                 <li><code>Clipbrd.SetAsHtml("Welcome to &lt;B&gt;Double Commander&lt;/b&gt;!")</code></li>
               </ul>
-              <p>If we switch to Notepad attempting to paste something, it will paste in plain text the message we copied with <code>Clipbrd.SetAsText</code>. But if we switch to Microsoft Word and paste something, it will paste the second one, the one with <B>Double Commander</b> in bold since the Microsoft Word recognize and support that clipboard content type.</p>
+              <p>If we switch to Notepad attempting to paste something, it will paste in plain text the message we copied with <code>Clipbrd.SetAsText</code>. But if we switch to Microsoft Word and paste something, it will paste the second one, the one with <b>Double Commander</b> in bold since the Microsoft Word recognize and support that clipboard content type.</p>
             </td>
           </tr>
         </table>
@@ -524,7 +524,7 @@
         <p>It assumes our active panel is currently into a directory with many source text files.</p>
         <p>It also assumes we currently have in clipboard a single word and that it will receive as a single parameter the current active folder.</p>
         <p>The script will scan the file in that current level of directory and will read the content of them one by one to detect text line that containts the word that was in clipboard.</p>
-        <p>Then, the filenames of the files that containt at least one line with that word will be place into the clipboard.</p>
+        <p>Then, the filenames of the files that contain at least one line with that word will be place into the clipboard.</p>
         <p>Then, the script will use the internal command <a href="cmds.html#cm_LoadSelectionFromClip">cm_LoadSelectionFromClip</a> and the files that have the words will then be selected.</p>
         <p>Also, at the end, we put back in our clipboard the original word that needed to be searched.</p>
         <pre>
@@ -551,7 +551,7 @@
     <span class="luakyw">repeat</span>
       sCompleteFilename <span class="luasbl">=</span> params<span class="luasbl">[</span><span class="luanum">1</span><span class="luasbl">]</span> <span class="luasbl">..</span> <span class="luastr">"\\"</span> <span class="luasbl">..</span> FindData<span class="luasbl">.</span>Name
       myfileattr <span class="luasbl">=</span> SysUtils.FileGetAttr<span class="luasbl">(</span>sCompleteFilename<span class="luasbl">)</span>
-      <span class="luakyw">if</span> myfileattr <span class="luasbl">></span> <span class="luanum">0</span> <span class="luakyw">then</span> <span class="luacmt">-- We got a valid attribut?</span>
+      <span class="luakyw">if</span> myfileattr <span class="luasbl">&gt;</span> <span class="luanum">0</span> <span class="luakyw">then</span> <span class="luacmt">-- We got a valid attribute?</span>
         <span class="luacmt">-- We need file, not directory!</span>
         <span class="luakyw">if</span> math<span class="luasbl">.</span><span class="luafct">floor</span><span class="luasbl">(</span>myfileattr <span class="luasbl">/</span> <span class="luanum">0x00000010</span><span class="luasbl">)</span> <span class="luasbl">%</span> <span class="luanum">2</span> <span class="luasbl">==</span> <span class="luanum">0</span> <span class="luakyw">then</span>
 
@@ -653,20 +653,20 @@
           <tr class="rowcategorytitle"><th colspan="2">Constant of ButFlags regarding the buttons displayed of Dialogs.MessageBox</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Constant value</th><th class="categorydesccolumn">Buttons displayed, from left to right</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">MB_OK</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0000<br><small class="firstcolumnaleft">MB_OK</small></div></td>
             <td class="hintcell">
               <img class="largeimage" title="Button OK" alt="Button OK" src="images/imgDC/luaimg11.png" width="66" height="21">
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0001<BR><SMALL class="firstcolumnaleft">MB_OKCANCEL</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0001<br><small class="firstcolumnaleft">MB_OKCANCEL</small></div></td>
             <td class="hintcell">
               <img class="largeimage" title="Button OK" alt="Button OK" src="images/imgDC/luaimg11.png" width="66" height="21">
               <img class="largeimage" title="Button CANCEL" alt="Button CANCEL" src="images/imgDC/luaimg12.png" width="66" height="21">
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0002<BR><SMALL class="firstcolumnaleft">MB_ABORTRETRYIGNORE</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0002<br><small class="firstcolumnaleft">MB_ABORTRETRYIGNORE</small></div></td>
             <td class="hintcell">
               <img class="largeimage" title="Button ABORT" alt="Button ABORT" src="images/imgDC/luaimg15.png" width="66" height="21">
               <img class="largeimage" title="Button RETRY" alt="Button RETRY" src="images/imgDC/luaimg14.png" width="66" height="21">
@@ -674,7 +674,7 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0003<BR><SMALL class="firstcolumnaleft">MB_YESNOCANCEL</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0003<br><small class="firstcolumnaleft">MB_YESNOCANCEL</small></div></td>
             <td class="hintcell">
               <img class="largeimage" title="Button YES" alt="Button YES" src="images/imgDC/luaimg16.png" width="66" height="21">
               <img class="largeimage" title="Button NO" alt="Button NO" src="images/imgDC/luaimg17.png" width="66" height="21">
@@ -682,17 +682,17 @@
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0004<BR><SMALL class="firstcolumnaleft">MB_YESNO</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0004<br><small class="firstcolumnaleft">MB_YESNO</small></div></td>
             <td class="hintcell">
               <img class="largeimage" title="Button YES" alt="Button YES" src="images/imgDC/luaimg16.png" width="66" height="21">
               <img class="largeimage" title="Button NO" alt="Button NO" src="images/imgDC/luaimg17.png" width="66" height="21">
             </td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0005<BR><SMALL class="firstcolumnaleft">MB_RETRYCANCEL</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0005<br><small class="firstcolumnaleft">MB_RETRYCANCEL</small></div></td>
             <td class="hintcell">
               <img class="largeimage" title="Button RETRY" alt="Button RETRY" src="images/imgDC/luaimg14.png" width="66" height="21">
-              <img class="largeimage" title="Button CANCEL" alt="Button CENCEL" src="images/imgDC/luaimg12.png" width="66" height="21">
+              <img class="largeimage" title="Button CANCEL" alt="Button CANCEL" src="images/imgDC/luaimg12.png" width="66" height="21">
             </td>
           </tr>
         </table>
@@ -706,19 +706,19 @@
           <tr class="rowcategorytitle"><th colspan="2">Constant of ButFlags regarding the icon and style of Dialogs.MessageBox</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Constant value</th><th class="categorydesccolumn">Style of window</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0040<BR><SMALL class="firstcolumnaleft">MB_ICONINFORMATION</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0040<br><small class="firstcolumnaleft">MB_ICONINFORMATION</small></div></td>
             <td class="hintcell"><img class="largeimage" title="Icon INFORMATION" alt="Icon INFORMATION" src="images/imgDC/luaimg8.png" width="32" height="32"> Informative window</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0030<BR><SMALL class="firstcolumnaleft">MB_ICONWARNING</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0030<br><small class="firstcolumnaleft">MB_ICONWARNING</small></div></td>
             <td class="hintcell"><img class="largeimage" title="Icon WARNING" alt="Icon WARNING" src="images/imgDC/luaimg9.png" width="32" height="32"> Warning window</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0020<BR><SMALL class="firstcolumnaleft">MB_ICONQUESTION</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0020<br><small class="firstcolumnaleft">MB_ICONQUESTION</small></div></td>
             <td class="hintcell"><img class="largeimage" title="Icon QUESTION" alt="Icon QUESTION" src="images/imgDC/luaimg7.png" width="32" height="32"> Confirmation window</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0010<BR><SMALL class="firstcolumnaleft">MB_ICONERROR</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0010<br><small class="firstcolumnaleft">MB_ICONERROR</small></div></td>
             <td class="hintcell"><img class="largeimage" title="Icon ERROR" alt="Icon ERROR" src="images/imgDC/luaimg10.png" width="32" height="32"> Error window</td>
           </tr>
         </table>
@@ -732,15 +732,15 @@
           <tr class="rowcategorytitle"><th colspan="2">Constant of ButFlags regarding the default button of Dialogs.MessageBox</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Constant value</th><th class="categorydesccolumn">Default button</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON1</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0000<br><small class="firstcolumnaleft">MB_DEFBUTTON1</small></div></td>
             <td class="hintcell">Default will be the first one on left</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0100<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON2</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0100<br><small class="firstcolumnaleft">MB_DEFBUTTON2</small></div></td>
             <td class="hintcell">Default will be the second one from left</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0200<BR><SMALL class="firstcolumnaleft">MB_DEFBUTTON3</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0200<br><small class="firstcolumnaleft">MB_DEFBUTTON3</small></div></td>
             <td class="hintcell">Default will be the third one from left</td>
           </tr>
         </table>
@@ -754,35 +754,35 @@
           <tr class="rowcategorytitle"><th colspan="2">ButPressed value returned based on button pressed of Dialogs.MessageBox</th></tr>
           <tr class="rowsubtitle"><th class="categorynamecolumn">Constant value</th><th class="categorydesccolumn">Button pressed</th></tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0000<BR><SMALL class="firstcolumnaleft">mrNone</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0000<br><small class="firstcolumnaleft">mrNone</small></div></td>
             <td class="hintcell">No button pressed</td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0001<BR><SMALL class="firstcolumnaleft">mrOK</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0001<br><small class="firstcolumnaleft">mrOK</small></div></td>
             <td class="hintcell"><img class="largeimage" title="Result OK" alt="Result OK" src="images/imgDC/luaimg11.png" width="66" height="21"></td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0002<BR><SMALL class="firstcolumnaleft">mrCancel</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0002<br><small class="firstcolumnaleft">mrCancel</small></div></td>
             <td class="hintcell"><img class="largeimage" title="Result CANCEL" alt="Result CANCEL" src="images/imgDC/luaimg12.png" width="66" height="21"></td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0003<BR><SMALL class="firstcolumnaleft">mrAbort</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0003<br><small class="firstcolumnaleft">mrAbort</small></div></td>
             <td class="hintcell"><img class="largeimage" title="Result ABORT" alt="Result ABORT" src="images/imgDC/luaimg15.png" width="66" height="21"></td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0004<BR><SMALL class="firstcolumnaleft">mrRetry</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0004<br><small class="firstcolumnaleft">mrRetry</small></div></td>
             <td class="hintcell"><img class="largeimage" title="Result RETRY" alt="Result RETRY" src="images/imgDC/luaimg14.png" width="66" height="21"></td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0005<BR><SMALL class="firstcolumnaleft">mrIgnore</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0005<br><small class="firstcolumnaleft">mrIgnore</small></div></td>
             <td class="hintcell"><img class="largeimage" title="Result IGNORE" alt="Result IGNORE" src="images/imgDC/luaimg13.png" width="66" height="21"></td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0006<BR><SMALL class="firstcolumnaleft">mrYes</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0006<br><small class="firstcolumnaleft">mrYes</small></div></td>
             <td class="hintcell"><img class="largeimage" title="Result YES" alt="Result YES" src="images/imgDC/luaimg16.png" width="66" height="21"></td>
           </tr>
           <tr>
-            <td class="varcell"><div class="firstcolumnaleft">0x0007<BR><SMALL class="firstcolumnaleft">mrNo</small></div></td>
+            <td class="varcell"><div class="firstcolumnaleft">0x0007<br><small class="firstcolumnaleft">mrNo</small></div></td>
             <td class="hintcell"><img class="largeimage" title="Result NO" alt="Result NO" src="images/imgDC/luaimg17.png" width="66" height="21"></td>
           </tr>
         </table>
@@ -829,7 +829,7 @@ ButPressed <span class="luasbl">=</span> <span class="mark">Dialogs.MessageBox</
 <span class="luakyw">if</span> ButPressed <span class="luasbl">==</span> mrYes <span class="luakyw">then</span>
   DC<span class="luasbl">.</span>ExecuteCommand<span class="luasbl">(</span><span class="luastr">"cm_Exit"</span><span class="luasbl">)</span>
 <span class="luakyw">end</span></pre>
-        <p class="figure"><img class="largeimage" title="Example of usage of the Dialogs.MessageBox" alt="Example of usage of the Dialogs.MessageBox" src="images/imgDC/luaimg6.png" width="400" height="158"></p>
+        <p class="figure"><img class="largeimage" title="Example of usage of the Dialogs.MessageBox" alt="Example of usage of the Dialogs.MessageBox" src="images/imgDC/luaimg6.png" width="362" height="120"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -842,7 +842,7 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
 <span class="luakyw">if</span> bAck <span class="luasbl">==</span> true then
   Dialogs<span class="luasbl">.</span>MessageBox<span class="luasbl">(</span><span class="luastr">"Hello "</span> <span class="luasbl">..</span> sAnswer .. <span class="luastr">"!"</span><span class="luasbl">,</span> <span class="luastr">"Welcome!"</span><span class="luasbl">,</span> <span class="luanum">0x0040</span><span class="luasbl">)</span>
 <span class="luakyw">end</span></pre>
-        <p class="figure"><img class="largeimage" title="Example of usage of the Dialogs.InputQuery" alt="Example of usage of the Dialogs.InputQuery" src="images/imgDC/luaimg5.png" width="504" height="122"></p>
+        <p class="figure"><img class="largeimage" title="Example of usage of the Dialogs.InputQuery" alt="Example of usage of the Dialogs.InputQuery" src="images/imgDC/luaimg5.png" width="364" height="112"></p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -944,7 +944,7 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
               <ul>
                 <li>A terminal commmand like <code>os.execute("dir &gt; all.txt")</code></li>
                 <li>An executable like <code>os.execute("C:\\Windows\\System32\\calc.exe")</code></li>
-                <li>An executable with parameters:<BR><code>os.execute("C:\\Utils\\fsum.exe -md5 test.bin &gt; md5.txt")</code></li>
+                <li>An executable with parameters:<br><code>os.execute("C:\\Utils\\fsum.exe -md5 test.bin &gt; md5.txt")</code></li>
               </ul>
             </td>
           </tr>
@@ -987,93 +987,93 @@ bAck<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span cl
             <td class="varcell"><div class="firstcolumnaleft">os.getenv</div></td>
             <td class="hintcell">
               <p class="definition">value = os.getenv(variablename)</p>
-              <p>Will return the <var>value</var> of the variable <var>variablename</var> passed in parameter.<BR>If no variable of that name exists, it will return <var>nil</var>.</td>
+              <p>Will return the <var>value</var> of the variable <var>variablename</var> passed in parameter.<br>If no variable of that name exists, it will return <var>nil</var>.</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
-        <BR>
+        <br>
       </div>
     </div>
     <div class="footer"><div class="nav"><a title="Index" href="index.html">Index</a> | <a title="Previous page" href="regexp.html">Previous</a> | <a title="Next page" href="commandline.html">Next</a></div></div>
     <div class="checker">
-	  <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
+      <a href="http://validator.w3.org/check?uri=referer" target="_blank"><img src="https://www.w3.org/Icons/valid-html40" alt="Valid HTML 4.0 Transitional" height="31" width="88"></a>
       <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valid!"></a>
-	</div>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
-    <BR>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </body>
 </html>
