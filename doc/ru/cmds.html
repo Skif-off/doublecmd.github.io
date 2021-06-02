@@ -972,24 +972,24 @@
             <td class="cmdhintcell">Перейти к странице настроек цветов, используемых в древовидном меню.</td>
           </tr>
           <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigHotKeys" alt="cm_ConfigHotKeys" src="../../pixmaps/dctheme/32x32/actions/cm_confighotkeys.png">
-              <div class="cmdname"><a name="cm_ConfigHotKeys">cm_ConfigHotKeys</a></div></td>
-            <td class="cmdhintcell">Перейти к странице настроек горячих клавиш.</td>
-          </tr>
-          <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigSearches" alt="cm_ConfigSearches" src="../../pixmaps/dctheme/32x32/actions/cm_configsearches.png">
               <div class="cmdname"><a name="cm_ConfigSearches">cm_ConfigSearches</a></div></td>
             <td class="cmdhintcell">Перейти к странице общих настроек поиска файлов.</td>
           </tr>
           <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigSaveSettings" alt="cm_ConfigSaveSettings" src="../../pixmaps/dctheme/32x32/actions/cm_configsavesettings.png">
-              <div class="cmdname"><a name="cm_ConfigSaveSettings">cm_ConfigSaveSettings</a></div>
-            <td class="cmdhintcell">Сохранить все текущие настройки и историю, так же, как если закрыть приложение и запустить снова.<br><i>Это может быть полезно, если вы использовали DC в течение продолжительной сессии и хотите сохранить текущий контекст на случай, например, краха системы, и не потерять текущую историю при следующем запуске DC.</i></td>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigHotKeys" alt="cm_ConfigHotKeys" src="../../pixmaps/dctheme/32x32/actions/cm_confighotkeys.png">
+              <div class="cmdname"><a name="cm_ConfigHotKeys">cm_ConfigHotKeys</a></div></td>
+            <td class="cmdhintcell">Перейти к странице настроек горячих клавиш.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigSavePos" alt="cm_ConfigSavePos" src="../../pixmaps/dctheme/32x32/actions/cm_configsavepos.png">
               <div class="cmdname"><a name="cm_ConfigSavePos">cm_ConfigSavePos</a></div>
             <td class="cmdhintcell">Сохранить текущее состояние и положение главного окна DC.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigSaveSettings" alt="cm_ConfigSaveSettings" src="../../pixmaps/dctheme/32x32/actions/cm_configsavesettings.png">
+              <div class="cmdname"><a name="cm_ConfigSaveSettings">cm_ConfigSaveSettings</a></div>
+            <td class="cmdhintcell">Сохранить все текущие настройки и историю, так же, как если закрыть приложение и запустить снова.<br><i>Это может быть полезно, если вы использовали DC в течение продолжительной сессии и хотите сохранить текущий контекст на случай, например, краха системы, и не потерять текущую историю при следующем запуске DC.</i></td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ConfigArchivers" alt="cm_ConfigArchivers" src="../../pixmaps/dctheme/32x32/actions/cm_configarchivers.png">
@@ -1534,6 +1534,12 @@
             </td>
           </tr>
           <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_SyncChangeDir" alt="cm_SyncChangeDir" src="../../pixmaps/dctheme/32x32/actions/cm_syncchangedir.png">
+              <div class="cmdname"><a name="cm_SyncChangeDir">cm_SyncChangeDir</a></div></td>
+            <td class="cmdhintcell">Синхронная смена каталогов в панелях.<br>
+              Синхронная навигация отключается при повторном вызове команды или автоматически, если нет совпадающих имён папок.</td>
+          </tr>
+          <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ChangeDirToParent" alt="cm_ChangeDirToParent" src="../../pixmaps/dctheme/32x32/actions/cm_changedirtoparent.png">
               <div class="cmdname"><a name="cm_ChangeDirToParent">cm_ChangeDirToParent</a></div>
               <div class="shrtctkey">Ctrl+PgUp, Backspace</div></td>
@@ -1584,6 +1590,57 @@
               <div class="cmdname"><a name="cm_Exchange">cm_Exchange</a></div>
               <div class="shrtctkey">Ctrl+U</div></td>
             <td class="cmdhintcell"><a href="help.html#cm_Exchange">Поменять местами</a> содержимое панелей.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_EditPath" alt="cm_EditPath" src="../../pixmaps/dctheme/32x32/actions/cm_editpath.png">
+              <div class="cmdname"><a name="cm_EditPath">cm_EditPath</a></div></td>
+            <td class="cmdhintcell">Ручное редактирование текущего пути активной панели.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_ChangeDir" alt="cm_ChangeDir" src="../../pixmaps/dctheme/32x32/actions/cm_changedir.png">
+              <div class="cmdname"><a name="cm_ChangeDir">cm_ChangeDir</a></div></td>
+            <td class="cmdhintcell">Изменить путь активной/неактивной/левой/правой панели на указанный каталог(и).<br>
+              Обратите внимание, что можно указать более одного параметра, поэтому одной командой можно одновременно установить пути и в активной, и в неактивной панели.<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Параметр</th>
+                  <th class="innerdescheader">Значение</th>
+                  <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">activepath</td>
+                  <td class="innerdescvaluecell"><i>путь</i></td>
+                  <td class="innerdescdesccell"><i>путь</i> будет открыт в активной панели</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">inactivepath</td>
+                  <td class="innerdescvaluecell"><i>путь</i></td>
+                  <td class="innerdescdesccell"><i>путь</i> будет открыт в неактивной панели</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">leftpath</td>
+                  <td class="innerdescvaluecell"><i>путь</i></td>
+                  <td class="innerdescdesccell"><i>путь</i> будет открыт в левой панели</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell">rightpath</td>
+                  <td class="innerdescvaluecell"><i>путь</i></td>
+                  <td class="innerdescdesccell"><i>путь</i> будет открыт в правой панели</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" colspan="3">Также в качестве единственного параметра можно просто указать путь и DC откроет этот путь в активной панели (сохранено для обеспечения обратной совместимости).</td>
+                </tr>
+              </table>
+              <br>
+              Примеры:<br>
+              <i>cm_ChangeDir activepath=%$DESKTOP% inactivepath=E:\Medias\Paul Houde</i><br>
+              В активной панели будет открыта папка рабочего стола текущего пользователя, а в неактивной&nbsp;&mdash; папка "Paul Houde".<br><br>
+              <i>cm_ChangeDir leftpath=C:\Working rightpath=E:\Euler</i><br>
+              Независимо от того, какая панель активна, папка "Working" будет открыта в левой панели, а "Euler"&nbsp;&mdash; в правой.<br><br>
+              <i>cm_ChangeDir \\TERA-06\OPENSHARE1\MEDIAS\PICTURES\2015</i><br>
+              В активной панели будет открыт указанный сетевой путь.
+            </td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_QuickSearch" alt="cm_QuickSearch" src="../../pixmaps/dctheme/32x32/actions/cm_quicksearch.png">
@@ -1721,57 +1778,6 @@
             </td>
           </tr>
           <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_EditPath" alt="cm_EditPath" src="../../pixmaps/dctheme/32x32/actions/cm_editpath.png">
-              <div class="cmdname"><a name="cm_EditPath">cm_EditPath</a></div></td>
-            <td class="cmdhintcell">Ручное редактирование текущего пути активной панели.</td>
-          </tr>
-          <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_ChangeDir" alt="cm_ChangeDir" src="../../pixmaps/dctheme/32x32/actions/cm_changedir.png">
-              <div class="cmdname"><a name="cm_ChangeDir">cm_ChangeDir</a></div></td>
-            <td class="cmdhintcell">Изменить путь активной/неактивной/левой/правой панели на указанный каталог(и).<br>
-              Обратите внимание, что можно указать более одного параметра, поэтому одной командой можно одновременно установить пути и в активной, и в неактивной панели.<br>
-              <br>
-              <table class="innercmddesc">
-                <tr class="rowinnerdesc">
-                  <th class="innerdescheader">Параметр</th>
-                  <th class="innerdescheader">Значение</th>
-                  <th class="innerdescheader">Описание</th>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell">activepath</td>
-                  <td class="innerdescvaluecell"><i>путь</i></td>
-                  <td class="innerdescdesccell"><i>путь</i> будет открыт в активной панели</td>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell">inactivepath</td>
-                  <td class="innerdescvaluecell"><i>путь</i></td>
-                  <td class="innerdescdesccell"><i>путь</i> будет открыт в неактивной панели</td>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell">leftpath</td>
-                  <td class="innerdescvaluecell"><i>путь</i></td>
-                  <td class="innerdescdesccell"><i>путь</i> будет открыт в левой панели</td>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell">rightpath</td>
-                  <td class="innerdescvaluecell"><i>путь</i></td>
-                  <td class="innerdescdesccell"><i>путь</i> будет открыт в правой панели</td>
-                </tr>
-                <tr>
-                  <td class="innerdescparamcell" colspan="3">Также в качестве единственного параметра можно просто указать путь и DC откроет этот путь в активной панели (сохранено для обеспечения обратной совместимости).</td>
-                </tr>
-              </table>
-              <br>
-              Примеры:<br>
-              <i>cm_ChangeDir activepath=%$DESKTOP% inactivepath=E:\Medias\Paul Houde</i><br>
-              В активной панели будет открыта папка рабочего стола текущего пользователя, а в неактивной&nbsp;&mdash; папка "Paul Houde".<br><br>
-              <i>cm_ChangeDir leftpath=C:\Working rightpath=E:\Euler</i><br>
-              Независимо от того, какая панель активна, папка "Working" будет открыта в левой панели, а "Euler"&nbsp;&mdash; в правой.<br><br>
-              <i>cm_ChangeDir \\TERA-06\OPENSHARE1\MEDIAS\PICTURES\2015</i><br>
-              В активной панели будет открыт указанный сетевой путь.
-            </td>
-          </tr>
-          <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToFirstEntry" alt="cm_GoToFirstEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotofirstentry.png">
               <div class="cmdname"><a name="cm_GoToFirstEntry">cm_GoToFirstEntry</a></div></td>
             <td class="cmdhintcell">Поместить курсор на первую папку или файл в списке.</td>
@@ -1782,16 +1788,6 @@
             <td class="cmdhintcell">Поместить курсор на последнюю папку или файл в списке.</td>
           </tr>
           <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToFirstFile" alt="cm_GoToFirstFile" src="../../pixmaps/dctheme/32x32/actions/cm_gotofirstfile.png">
-              <div class="cmdname"><a name="cm_GoToFirstFile">cm_GoToFirstFile</a></div></td>
-            <td class="cmdhintcell">Поместить курсор на первый файл в списке.</td>
-          </tr>
-          <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToLastFile" alt="cm_GoToLastFile" src="../../pixmaps/dctheme/32x32/actions/cm_gotolastfile.png">
-              <div class="cmdname"><a name="cm_GoToLastFile">cm_GoToLastFile</a></div></td>
-            <td class="cmdhintcell">Поместить курсор на последний файл в списке.</td>
-          </tr>
-          <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToNextEntry" alt="cm_GoToNextEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotonextentry.png">
               <div class="cmdname"><a name="cm_GoToNextEntry">cm_GoToNextEntry</a></div></td>
             <td class="cmdhintcell">Поместить курсор на следующую папку или файл.</td>
@@ -1800,6 +1796,16 @@
             <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToPrevEntry" alt="cm_GoToPrevEntry" src="../../pixmaps/dctheme/32x32/actions/cm_gotopreventry.png">
               <div class="cmdname"><a name="cm_GoToPrevEntry">cm_GoToPrevEntry</a></div></td>
             <td class="cmdhintcell">Поместить курсор на предыдущую папку или файл.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToFirstFile" alt="cm_GoToFirstFile" src="../../pixmaps/dctheme/32x32/actions/cm_gotofirstfile.png">
+              <div class="cmdname"><a name="cm_GoToFirstFile">cm_GoToFirstFile</a></div></td>
+            <td class="cmdhintcell">Поместить курсор на первый файл в списке.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_GoToLastFile" alt="cm_GoToLastFile" src="../../pixmaps/dctheme/32x32/actions/cm_gotolastfile.png">
+              <div class="cmdname"><a name="cm_GoToLastFile">cm_GoToLastFile</a></div></td>
+            <td class="cmdhintcell">Поместить курсор на последний файл в списке.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_ViewHistory" alt="cm_ViewHistory" src="../../pixmaps/dctheme/32x32/actions/cm_viewhistory.png">
@@ -2187,12 +2193,6 @@
             </td>
           </tr>
           <tr>
-            <td class="cmdcell"><img class="IntCmdImage" title="cm_ToggleFullscreenConsole" alt="cm_ToggleFullscreenConsole" src="../../pixmaps/dctheme/32x32/actions/cm_togglefullscreenconsole.png">
-              <div class="cmdname"><a name="cm_ToggleFullscreenConsole">cm_ToggleFullscreenConsole</a></div>
-              <div class="shrtctkey">Ctrl+O</div></td>
-            <td class="cmdhintcell">Переключить консольное окно в режим полного экрана.</td>
-          </tr>
-          <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CmdLineNext" alt="cm_CmdLineNext" src="../../pixmaps/dctheme/32x32/actions/cm_cmdlinenext.png">
               <div class="cmdname"><a name="cm_CmdLineNext">cm_CmdLineNext</a></div></td>
             <td class="cmdhintcell">Выбрать следующую команду, набранную до текущей (если имеется).</td>
@@ -2250,6 +2250,12 @@
               <div class="longcmdname"><a name="cm_AddPathAndFilenameToCmdLine">cm_AddPathAndFilenameToCmdLine</a></div>
               <div class="shrtctkey">Ctrl+Shift+Enter</div></td>
             <td class="cmdhintcell">Вставить в командную строку текущий путь и имя файла под курсором.<br><b>Примечание:</b> Команда принимает те же параметры, что и <a href="#cm_AddPathToCmdLine">cm_AddPathToCmdLine</a>.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_ToggleFullscreenConsole" alt="cm_ToggleFullscreenConsole" src="../../pixmaps/dctheme/32x32/actions/cm_togglefullscreenconsole.png">
+              <div class="cmdname"><a name="cm_ToggleFullscreenConsole">cm_ToggleFullscreenConsole</a></div>
+              <div class="shrtctkey">Ctrl+O</div></td>
+            <td class="cmdhintcell">Переключить консольное окно в режим полного экрана.</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>

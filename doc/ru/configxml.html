@@ -237,11 +237,16 @@
           </tr>
 
           <tr>
+            <td class="varcell"><div class="firstcolumnaleft">&lt;LongNameAlert&gt;<br><small>в &lt;FileOperations&gt;</small></div></td>
+            <td class="hintcell">Предупредить, если целевой путь длиннее максимальной длины для пути (некоторые программы не смогут получить доступ к файлу/каталогу с таким длинным именем). В Windows это значение (MAX_PATH) составляет 260 символов. По умолчанию <code>True</code>.</td>
+          </tr>
+
+          <tr>
             <td class="varcell"><div class="firstcolumnaleft">&lt;NtfsHourTimeDelay&gt;<br><small>в &lt;FileOperations&gt;</small></div></td>
             <td class="hintcell">
               При сравнении даты и времени игнорировать разницу во времени ровно один час
               (при использовании внутренних команд <a href="cmds.html#cm_CompareDirectories">cm_CompareDirectories</a> или <a href="cmds.html#cm_SyncDirs">cm_SyncDirs</a>).<br>
-              Это полезно при сравнении файлов и папок на разделе с NTFS и, например, с FAT32, поскольку <a href="https://support.microsoft.com/en-us/help/129574/time-stamp-changes-with-daylight-savings" target="_blank">метки времени на томах с NTFS</a> меняются при переходе с летнего или на летнее время: т.е. файлы на NTFS идентичны файлам на разделе с FAT32, хотя мы явно видим один час разницы.<br>
+              Это полезно при сравнении файлов и папок на разделах с NTFS и FAT32, поскольку <a href="https://support.microsoft.com/en-us/help/129574/time-stamp-changes-with-daylight-savings" target="_blank">метки времени на томах с NTFS</a> меняются при переходе с летнего или на летнее время: т.е. файлы на NTFS идентичны файлам на разделе с FAT32, хотя мы явно видим один час разницы.<br>
               <table class="innercmddesc">
                 <tr class="rowinnerdesc">
                   <th class="innerdescheader">Значение</th>

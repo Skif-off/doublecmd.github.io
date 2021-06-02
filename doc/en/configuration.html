@@ -129,7 +129,7 @@
           <li><p><tt>shortcuts.scf</tt>&nbsp;&mdash; keyboard layout settings;</p></li>
           <li><p><tt>multiarc.ini</tt>&nbsp;&mdash; external archivers;</p></li>
           <li><p><tt>history.xml</tt>&nbsp;&mdash; command line and directory history, search and replace, etc.;</p></li>
-          <li><p><i>few others...</i>&nbsp;&mdash; etc...</p></li>
+          <li><p>few others...&nbsp;&mdash; etc...</p></li>
         </ul>
         <p>We normally don't have to play directly into these files. As we work with the application and configuring it in the options, the information will be write into them. Then, on the next session, their values will be restored.</p>
       </div>
@@ -268,12 +268,12 @@
 
         <p><span class="bold"><a name="ConfigMouseDD">2.7.1. Mouse&nbsp;&gt; Drag &amp; drop</a></span></p>
         <p><span class="italic">Show confirmation dialog after drop</span>&nbsp;&mdash; helps to avoid accidental errors when using drag and drop files inside the active file panel or between panels: Double Commander will show a confirmation dialog as for normal copying or moving (if the <kbd>Shift</kbd> key was held) files.</p>
-        <p>The next feature is available on Windows only: you can drag and drop text selected in a web browser or word processor (for example, LibreOffice Writer or Microsoft Word) to the panel and save it. Here you can choose file format (RTF, HTML or plain text file), encoding and enable automatic name generation.</p>
+        <p>The next feature is available in Windows only: you can drag and drop text selected in a web browser or word processor (for example, LibreOffice Writer or Microsoft Word) to the panel and save it. Here you can choose file format (RTF, HTML or plain text file), encoding and enable automatic name generation.</p>
         <br>
 
         <p><span class="bold"><a name="ConfigView">2.8. Files views</a></span></p>
         <p>In this section, you can set various file sorting options and date/time and size formats.</p>
-        <p class="figure"><img class="largeimage" alt="Files views: sorting and formatting" title="Files views: sorting and formatting" src="images/imgDC/pic35.png" width="710" height="399"></p>
+        <p class="figure"><img class="largeimage" alt="Files views: sorting and formatting" title="Files views: sorting and formatting" src="images/imgDC/pic35.png" width="710" height="426"></p>
 
         <p><span class="italic">Sort method</span>&nbsp;&mdash; sets the sorting method in the file panels:</p>
         <ul>
@@ -344,9 +344,10 @@
 
         <p>The next parameters sets the file size format:</p>
         <ul>
-          <li><p><span class="italic">File size format</span>&nbsp;&mdash; will be used in file panels.</p></li>
-          <li><p><span class="italic">Header/footer format</span>&nbsp;&mdash; will be used in the drives list, status bar and free space label.</p></li>
-          <li><p><span class="italic">Operation size format</span>&nbsp;&mdash; will be used in file operations dialogs: copying, moving, calculating checksums and so on.</p></li>
+          <li><p><span class="italic">File size format</span>&nbsp;&mdash; will be used in the file panels.</p></li>
+          <li><p><span class="italic">Header format</span>&nbsp;&mdash; will be used in the drives list and free space label.</p></li>
+          <li><p><span class="italic">Footer format</span>&nbsp;&mdash; will be used in the status bar of the file panels.</p></li>
+          <li><p><span class="italic">Operation size format</span>&nbsp;&mdash; will be used in the file operations dialogs: copying, moving, calculating checksums and so on.</p></li>
         </ul>
         <p>Also on the right you can set the number of digits after the decimal separator (i.e. separator for integer and fractional parts of a number): 0, 1, 2 or 3.</p>
         <p>File size units: bytes, kilobytes, megabytes, gigabytes, terabytes or float (Double Commander will choose the unit automatically based on the size).</p>
@@ -456,7 +457,33 @@
         <br>
 
         <p><span class="bold"><a name="ConfigPlugins">2.9. Plugins</a></span></p>
-        <p>Information will be added later...</p>
+        <p>Plugins are extensions that enhance the functionality of Double Commander. There are several types of plugins:</p>
+        <p><span class="italic">1. Packer plugins (WCX)</span></p>
+        <p>Packer plugins are used to unpack specific types of files, usually archive formats. Some plugins also support creating new archives and modifying existing archives.<br>
+          There are plugins that allow to save a list of selected files or use batch processing: creating links,converting files, copying with specific conditions, etc.</p>
+        <p><span class="italic">2. Content plugins (WDX)</span></p>
+        <p>Content plugins are designed to get properties of a file or information about its content (for example, EXIF or ID3 tags). You can use this data in the file search or multi-rename tool, column set, tooltips.<br>
+          Also Double Commander supports WDX plugins written in the Lua language (scripts are added in the same way as ordinary plugins). Examples can be found in the program folder (<tt>plugins/wdx/scripts</tt>).</p>
+        <p><span class="italic">3. File system plugins (WFX)</span></p>
+        <p>File system plugins uses their own file systems or provides access to other file systems and devices (local or remote). For example, FTP servers, Samba,mobile devises. Also it can be lists of files, running processes and services, or the Windows registry.</p>
+        <p><span class="italic">4. Lister plugins (WLX)</span></p>
+        <p>The built-in viewer displays plain text files, some image formats and console commands output, plugins allow to expand this list: electronic documents and databases, audio and video files, font files, content of archives, detailed information about some files, source code files with syntax highlighting.<br>
+          Order matters: when choosing an appropriate plugin, Double Commander starts checking from top to bottom.</p>
+        <p><span class="italic">5. Search plugin (DSX)</span></p>
+        <p>Search plugins are Double Commander's own plugin type, these plugins use console programs to find files (for example, Locate, Everything or Recoll).</p>
+        <p>Buttons:</p>
+        <ul>
+          <li><p><span class="italic">Add</span>&nbsp;&mdash; opens the file selection dialog. Alternatively, you can use the internal <a href="cmds.html#cm_AddPlugin">cm_AddPlugin</a> command.</p></li>
+          <li><p><span class="italic">Disable</span>&nbsp;&mdash; allows to temporarily disable the selected plugin.</p></li>
+          <li><p><span class="italic">Remove</span>&nbsp;&mdash; removes the selected plugin from the list (but not plugin file!).</p></li>
+          <li><p>
+            <span class="italic">Tweak</span>&nbsp;&mdash; the action depends on the type of plugin:<br>
+            - WCX: change plugin path, set file extensions and supported functions;<br>
+            - WDX and WLX: change plugin path, display name or detect string;<br>
+            - WFX: change plugin path or display name.
+          </p></li>
+          <li><p><span class="italic">Configure</span>&nbsp;&mdash; opens the plugin's own settings window (if selected plugin supports this feature).</p></li>
+        </ul>
         <br>
 
         <p><span class="bold"><a name="ConfigLayout">2.10. Layout</a></span></p>

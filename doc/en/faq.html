@@ -69,10 +69,10 @@
           <dt><a name="viewer">5. Issues related to the built-in viewer (<kbd>F3</kbd>) and editor (<kbd>F4</kbd>)</a></dt>
           <dd>
             <dl>
-              <dt>5.1. <a href="#f3_compiz">Editor and browser windows appear in random positions, when Compiz is enabled</a></dt>
-              <dt>5.2. <a href="#f3_font">Internal editor has a strange font&nbsp;&mdash; horizontal characters overwrite each other</a></dt>
-              <dt>5.3. <a href="#f3_jpg">Viewer does not work with a few images, but works with most</a></dt>
-              <dt>5.4. <a href="#f3_hscroll">On some text files lines go beyond the window's edge</a></dt>
+              <dt>5.1. <a href="#f3_compiz">Editor and browser windows appear in random positions, when Compiz is enabled.</a></dt>
+              <dt>5.2. <a href="#f3_font">Internal editor has a strange font&nbsp;&mdash; horizontal characters overwrite each other.</a></dt>
+              <dt>5.3. <a href="#f3_jpg">Viewer does not work with a few images, but works with most.</a></dt>
+              <dt>5.4. <a href="#f3_hscroll">On some text files lines go beyond the window's edge.</a></dt>
               <dt>5.5. <a href="#f4_colmode">Can you add column editing feature (like in Notepad++, UltraEdit etc)?</a></dt>
               <dt>5.6. <a href="#f3_svg">Is it possible to add support SVG in the viewer?</a></dt>
               <dt>5.7. <a href="#f34_regutf8">How can I use regular expressions to search in UTF-8?</a></dt>
@@ -84,6 +84,7 @@
               <dt>6.1. <a href="#fv_datetime">I didn't find a suitable date format for file panels in the list! How to add my own?</a></dt>
               <dt>6.2. <a href="#fv_svg">Is it possible to add support SVG thumbnails in thumbnails view?</a></dt>
               <dt>6.3. <a href="#fn_ext">I want to see the filenames in the "Name" column with extensions, can I do it?</a></dt>
+              <dt>6.4. <a href="#folder_sort">Is it possible to sort folders by clicking on column header ("Date", "Size" and so on)?</a></dt>
             </dl>
           </dd>
           <dt><a name="plugins">7. Plugins</a></dt>
@@ -102,8 +103,8 @@
         <br>
 
         <p class="bold"><a name="whatsnew">Q: What's new in this version?</a></p>
-        <p><span class="bold">A:</span> History log can be found online at <a href="https://sourceforge.net/p/doublecmd/news/">this page</a>.
-          But the project is now under development, so later <a href="https://doublecmd.sourceforge.io/site/eng/snapshots.html">nightly builds</a> contain many new features and improvements.</p>
+        <p><span class="bold">A:</span> List of changes can be found on the <a href="https://github.com/doublecmd/doublecmd/wiki">Wiki page</a>.
+          But the project is now under development, so later <a href="https://doublecmd.sourceforge.io/site/eng/snapshots.php">nightly builds</a> contain many new features and improvements.</p>
         <br>
 
         <p class="bold"><a name="linux">Q: Is it a Total Commander&reg; for Linux?</a></p>
@@ -120,7 +121,8 @@
         <br>
 
         <p class="bold"><a name="link">Q: How can I contact the developers of Double Commander?</a></p>
-        <p><span class="bold">A:</span> Just write to the project's <a href="https://doublecmd.sourceforge.io/forum/">official forum</a> and the developers will (possibly) pay attention to your suggestions.</p>
+        <p><span class="bold">A:</span> The project's <a href="https://doublecmd.h1n.ru/">official forum</a>, <a href="https://doublecmd.sourceforge.io/mantisbt/my_view_page.php">bug tracker</a> (with the same login and password) or <a href="https://github.com/doublecmd/doublecmd">GitHub</a>.<br>
+          Make sure you are using the latest version of the program and it's a good idea to check the development (alpha) version before reporting a bug or requesting a new feature.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -200,7 +202,7 @@
         <br>
 
         <p class="bold"><a name="theme">Q: Does DC has other icon themes?</a></p>
-        <p><span class="bold">A:</span> Now we know only one small theme <a href="https://doublecmd.sourceforge.io/forum/viewtopic.php?f=5&amp;t=3658" target="_blank">doubleMac</a>, but the installation instruction is outdated (see below).<br>
+        <p><span class="bold">A:</span> Now we know only one small theme <a href="https://doublecmd.h1n.ru/viewtopic.php?f=5&amp;t=3658" target="_blank">DoubleMac</a>, but the installation instruction is outdated (see below).<br>
           You can make icon theme yourself, it's easy (we will use the name "MyDCTheme" as an example).</p>
         <p><span class="uline"><i>How to make:</i></span><br>
           -&nbsp;open DC folder and see directory structure of "pixmaps/dctheme";<br>
@@ -263,7 +265,8 @@
         <br>
 
         <p class="bold"><a name="context_menu_edit">Q: How to customize the context menu, for example, add the item "Open With"?</a></p>
-        <p><span class="bold">A:</span> This can been incorporated into Double Commander; however, it's easy to add a command to the Actions item of the context menu. Here is an example of how to open any directory with root privileges:</p>
+        <p><span class="bold">A:</span> This can been incorporated into Double Commander; however, it's easy to add a command to the Actions item of the context menu.
+          Here is an example of how to open any directory with root privileges:</p>
         <ol>
           <li>Under File Types, click Add, then enter, e.g. <code>Dir</code> in the popup.</li>
           <li>Under Extensions, click Add, and enter, e.g. <code>folder</code> in the popup.</li>
@@ -337,6 +340,11 @@
         <p class="bold"><a name="fn_ext">Q: I want to see the filenames in the "Name" column with extensions, can I do it?</a></p>
         <p><span class="bold">A:</span> Yes, it's possible. Go to "Configuration" in main menu&nbsp;&gt; Options...&nbsp;&gt; Files views&nbsp;&gt; Columns&nbsp;&gt; Custom columns,
           now create a new column set or change existing default set: by default, DC uses <code>GETFILENAMENOEXT</code> field for name, use <code>GETFILENAME</code> instead.</p>
+        <br>
+
+        <p class="bold"><a name="folder_sort">Q: Is it possible to sort folders by clicking on column header ("Date", "Size" and so on)?</a></p>
+        <p><span class="bold">A:</span> Yes, you can enable this feature: go to "Configuration" in main menu&nbsp;&gt; Options...&nbsp;&gt;
+          Files views&nbsp;&gt; Sorting&nbsp;&gt; Sorting directories and use "sort like files and show first" or "sort like files".</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
