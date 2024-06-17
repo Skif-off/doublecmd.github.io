@@ -59,6 +59,7 @@
           <li><p><span class="italic">Opened tabs</span>&nbsp;&ndash; only directories of opened tabs will be used (tabs of active and inactive panels).</p></li>
           <li><p><span class="italic">Selected directories and files</span>&nbsp;&ndash; if enabled, the search will be conducted only among selected files and folders in the active panel. If there are selected files/folders in the file panel, this option will be enabled automatically.</p></li>
           <li><p><span class="italic">Follow symlinks</span>&nbsp;&ndash; if a symbolic link to a directory is found, the target directory will be read and used, otherwise this symbolic link will be considered a regular file.</p></li>
+          <li><p><span class="italic">Drives</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; allows to select one or more drives to use as starting directories for searching.</p></li>
           <li><p><span class="italic">Exclude subdirectories</span>&nbsp;&ndash; a list of directory masks to be excluded from the search, here we can specify folder names and relative or absolute paths.</p></li>
           <li><p><span class="italic">Search subdirectories</span> can have:</p>
           <ul>
@@ -69,7 +70,7 @@
           <p>This setting controls the depth of the search in the filesystem tree. If set to "current dir only", the search will only be conducted in the directory specified in the "Start in directory" field (not in any subdirectories).</p></li>
         </ul>
         <p>The <span class="italic">File mask</span> field sets the mask for the search. Or we can just specify the file name or part of it.</p>
-        <p>Note: Keep in mind that Double Commander saves a general history of file masks for several tools: find files, directory synchronization, archive unpacking, commands for selecting a group of files.</p>
+        <p>Note: Keep in mind that Double Commander saves a general history of file masks for several tools: find files, archive unpacking, commands for selecting a group of files.</p>
         <p>Additional options:</p>
         <ul>
           <li><p><span class="italic">Search in archives</span>&nbsp;&ndash; if enabled, Double Commander will try to additionally read the contents of all archives in the search directory(ies). The list of supported formats depends on the added packer plugins.</p></li>

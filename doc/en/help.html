@@ -188,7 +188,7 @@
         <p>Also we can unpack files via <a name="cm_ExtractFiles"><span class="bold">Extract Files</span></a> (internal command <tt>cm_ExtractFiles</tt>). The same dialog is called when you copy files from the archive.</p>
         <p class="figure"><img class="largeimage" title="Unpack" alt="Unpack" src="images/imgDC/pic23.png" width="480" height="246"></p>
         <p>In the <span class="italic">Extract files matching file mask</span> line, you can specify a mask, determining which files will be unpacked. The history of masks can be found in the drop-down list.</p>
-        <p>Note: Keep in mind that Double Commander saves a general history of file masks for several tools: find files, directory synchronization, archive unpacking, commands for selecting a group of files.</p>
+        <p>Note: Keep in mind that Double Commander saves a general history of file masks for several tools: find files, archive unpacking, commands for selecting a group of files.</p>
         <p>The next line specifies the destination directory (where the archive will be unpacked). It can be changed manually or by clicking on the browse button at the far right.</p>
         <p><span class="italic">Unpack each archive to a separate subdir (name of the archive)</span>&nbsp;&ndash; If checked, Double Commander will create a folder with the same name as the archive in the destination directory and extract the files into this folder. You can extract several archives at once with this option and each will be extracted into its own folder in the target directory. The indeterminate checkbox state (three-state) enables the smart extract: if there are several objects in the root of the archive, then the contents of the archive will be unpacked into a folder with the name of the archive, but if there is one object, then the contents will be unpacked as is. By default it is unchecked and its state is not saved for the next call of the extract command.</p>
         <p><span class="italic">Unpack path names if stored with files</span>&nbsp;&ndash; If checked, the directory structure in the archive will be kept. Otherwise, all files will be extracted without re-creating the directory structure.</p>
@@ -242,7 +242,7 @@
         <h2><a name="mnu_select">2.1.2. "Mark"</a></h2>
         <p>There are some commands in this group with which you can select files in different ways.</p>
         <p>First and second items <span class="bold"><a name="cm_MarkPlus">Select a Group</a></span> and <span class="bold"><a name="cm_MarkMinus">Unselect a Group</a></span> (internal commands <tt>cm_MarkPlus</tt> and <tt>cm_MarkMinus</tt>). These commands select groups of files by a mask. With this mask you can specify file names or extensions (you can specify several values separated by semicolons ";" without spaces). Also there is a drop-down list with masks history.</p>
-        <p>Note: Keep in mind that Double Commander saves a general history of file masks for several tools: find files, directory synchronization, archive unpacking, commands for selecting a group of files.</p>
+        <p>Note: Keep in mind that Double Commander saves a general history of file masks for several tools: find files, archive unpacking, commands for selecting a group of files.</p>
         <p>For example, select all files that have the <tt>txt</tt> extension:</p>
         <p class="figure"><img class="largeimage" title="Select a group" alt="Select a group" src="images/imgDC/pic27.png" width="333" height="332"></p>
         <p>The <span class="italic">Define...</span> button allows to create a new search template.</p>
@@ -291,8 +291,15 @@
           <li><p><tt>Linux</tt>&nbsp;&ndash; list of all Linux distributions that you added to WSL and their root file systems (Windows 10 and newer).</p></li>
           <li><p><tt>Network</tt>&nbsp;&ndash; access to shared network resources (Windows) or to network resources using Gio (Linux).</p></li>
           <li><p><tt>Recycle Bin</tt>&nbsp;&ndash; access to files deleted to the trash.</p></li>
+          <li><p><tt>Stash</tt><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; allows quick and easy access to files and folders located in different directories. Stash contains only links to real files and doesn't take up any space. Double Commander doesn't remember the contents of the Stash and will clear it when closing the application.<br>
+            This virtual panel is similar to a regular file panel and supports most file operations: viewing, editing, comparing by content, searching, copying, moving, inplace and group renaming, packaging and unpacking files, opening in an associated application.<br>
+            To add files to the Stash, use the <span class="italic">Add to Stash</span> item in the file context menu, the internal command <tt>cm_AddToStash</tt> or simply copy files (<kbd>F5</kbd>) to the virtual panel.<br>
+            <b>WARNING:</b> All actions occur with real files, so to remove files from the Stash, use the <span class="italic">Remove Stash Items</span> item in the file context menu or the internal command <tt>cm_RemoveFromStash</tt>. Also, files and folders will be automatically removed from the Stash when they are moved, deleted, or renamed.<br>
+            To clear the Stash, use the <span class="italic">Empty Stash</span> item in the context menu of files, the internal command <tt>cm_EmptyStash</tt> or simply close the application.<br>
+            <a href="lua.html#librarystash">Stash library</a> is available for Lua scripting.</p></li>
         </ul>
         <p>(The list is sorted alphabetically and depends on the language settings of the system and the program.)</p>
+        <p><span class="bold">Open Stash</span><span class="versionref"><sup>(Alpha version)</sup></span> to quickly access the Stash (see <a href="#cm_OpenVirtualFileSystemList">above</a>).</p>
         <p><span class="bold"><a name="cm_Exchange">Swap Panels</a></span> (internal command <tt>cm_Exchange</tt>) swaps left and right file panels with all opened tabs.</p>
         <p><span class="bold">Target = Source</span> (internal command <tt>cm_TargetEqualSource</tt>) opens the same directory in the inactive file panel.</p>
         <p><span class="bold">Show Occupied Space</span> calculates and shows the total size of all files in the sub-folders of the current directory. The &lt;DIR&gt; text in the Size column of the active panel is replaced with the total size.</p>
@@ -450,6 +457,7 @@
         <p class="figure"><img class="largeimage" title="Tabs bar" alt="Tabs bar" src="images/imgDC/pic6.png" width="228" height="28"></p>
         <p>Display tabs. Click on tabs with left mouse or you can use the keyboard to navigate tabs (<kbd>Ctrl+Tab</kbd> and <kbd>Ctrl+Shift+Tab</kbd> by default). To change the order of the tabs, use drag &amp; drop or the <tt>cm_MoveTabLeft</tt> and <tt>cm_MoveTabRight</tt> commands.</p>
         <p>You can protect tabs from closing or changing the directory, the available tab states are described in the <a href="#mnu_tabs">"Tabs"</a> subsection. Locked tabs are marked with an asterisk (if <a href="configuration.html#5_1_12_1_zvezda">Show locked tabs with an asterisk *</a> is enabled).</p>
+        <p>Also you can allow Double Commander to automatically mark those tabs saved in the previous session whose path has become unavailable when launched (for example, removable/unmounted drive or offline network share): see <span class="italic">Mark unavailable path in tab title with a question mark</span> in the <a href="#ConfigTabs">Folder tabs</a> settings section.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -471,6 +479,7 @@
         <p class="figure"><img class="largeimage" title="Tabstop headers bar" alt="Tabstop headers bar" src="images/imgDC/pic9.png" width="448" height="19"></p>
         <p>Shows the column names. On left click <a href="#sort_by">sorts</a> files by column. A small arrow to the left of the header text shows the sort direction. Also you can set the sort order for multiple columns by clicking on the header while holding down the <kbd>Ctrl</kbd> key. For example, try to sort files by extension, now click on the "Date" header with the <kbd>Ctrl</kbd> key: each file type will be sorted by date independently of the others.</p>
         <p>The tabstop headers bar allows to change the width of the columns using the mouse by simply dragging the borders, by default DC changes it for both panels and saves a new value for the next launches (see <a href="configxml.html">&lt;AutoSaveWidth&gt;</a>).</p>
+        <p>Double mouse clicking on the right border of a column header will set the column width to its contents (except for the first or last column, if <a href="configuration.html#ConfigViewFull">automatic size</a> is choose for it).<span class="versionref"><sup>(Alpha version)</sup></span></p>
         <p>On right click shows a menu to change and edit custom column style set.</p>
         <p class="figure"><img class="largeimage" title="Column set style dialog" alt="Column set style dialog" src="images/imgDC/pic10.png" width="273" height="108"></p>
         <p><span class="italic">Default, File count</span>&nbsp;&ndash; existing styles.</p>
@@ -535,11 +544,12 @@
         <br>
 
         <p><a name="cm_ContextMenu"><span class="bold">Context menu</span></a></p>
-        <p>The appearance and contents of the context menu of files (the right mouse button menu) depend on the family of the operating system. In Windows Double Commander uses the system context menu (as in Windows Explorer) with the "Actions" submenu (see below), in other operating systems Double Commander creates its own context menu with typical actions. If you prefer to use the right mouse button selection mode, then a slightly longer hold of the right button will be required to call this menu. You can use the internal command <a href="cmds.html#cm_ContextMenu">cm_ContextMenu</a> to call the context menu (<kbd>Shift+F10</kbd> by default).</p>
+        <p>The appearance and contents of the context menu of files (the right mouse button menu) depend on the family of the operating system. In Windows Double Commander uses the system context menu (as in Windows Explorer) with the "Actions" submenu and items for working with Stash (see below), in other operating systems Double Commander creates its own context menu with typical actions. If you prefer to use the right mouse button selection mode, then a slightly longer hold of the right button will be required to call this menu. You can use the internal command <a href="cmds.html#cm_ContextMenu">cm_ContextMenu</a> to call the context menu (<kbd>Shift+F10</kbd> by default).</p>
         <p>Context menu of Double Commander in Linux and other Unix-like systems:</p>
         <ul>
           <li><p><span class="italic">Open</span>&nbsp;&ndash; Open the file under the cursor in the default program (system file associations will be used).</p></li>
           <li><p>The <span class="italic">Actions</span> submenu&nbsp;&ndash; contains all the actions added to the <a href="configuration.html#ConfigAssociations">file association</a> for files with the file extension under the cursor. Also you can add a few <a href="configuration.html#ConfigAssocEx">additional actions</a>.</p></li>
+          <li><p><span class="italic">Add to Stash</span>&nbsp;&ndash; is one of the available ways to add files to the <a href="#cm_OpenVirtualFileSystemList">Stash</a>. Inside the Stash, instead of this item, there will be <span class="italic">Remove Stash Items</span> and <span class="italic">Empty Stash</span>.<span class="versionref"><sup>(Alpha version)</sup></span></p></li>
           <li><p>The <span class="italic">Open with</span> submenu&nbsp;&ndash; contains a list of applications suitable for opening a file. To get the list in macOS, Double Commander uses the Launch Services API, in other systems the program follows the <a href="https://specifications.freedesktop.org/menu-spec/latest" target="_blank">Desktop Menu</a> specification.<br>
             The additional item <span class="italic">Other...</span></p>
             <ul>
@@ -575,7 +585,7 @@
 
         <p><a name="rename_files"><span class="bold">Renaming files</span></a></p>
         <p>Double Commander allows to rename files directly in the file panel. There are several ways to call this operation: the internal command <tt>cm_RenameOnly</tt> (<kbd>F2</kbd> or <kbd>Shift+F6</kbd> by default), the <a href="configuration.html#ConfigViewEx">left mouse click</a> or the corresponding item in the right mouse button menu.</p>
-        <p>By default, Double Commander will select the file name completely, but you can <a href="configuration.html#ConfigOperations">enable</a> file name selecting without an extension. Also, repeated hotkey presses allow to select the file name in parts, the following characters are used as a separator: space, hyphen underscore and period. Folder names are always selected completely.</p>
+        <p>By default, Double Commander will select the file name completely, but you can <a href="configuration.html#ConfigOperations">enable</a> file name selecting without an extension. The <tt>cm_RenameOnly</tt> command also has an additional parameter, see the <a href="cmds.html#cm_RenameOnly">description</a> for more details.<span class="versionref"><sup>(Alpha version)</sup></span> Repeated hotkey presses allow to select the file name in parts, the following characters are used as a separator: space, hyphen underscore and period. Folder names are always selected completely.</p>
         <p>To confirm the change in the name, use the <kbd>Enter</kbd> key or the rename confirmation button to the right of the edit field. To cancel unconfirmed changes (to exit editing mode), use the <kbd>Esc</kbd> key or the mouse click outside the edit field. You can use a mouse click outside the edit field to confirm the renaming (as in Windows Explorer), see the description of <a href="configxml.html">&lt;RenameConfirmMouse&gt;</a>.</p>
         <p>Using the up and down arrows, you can rename several files sequentially: the new file name will be automatically saved when you go to edit the name of the next or previous file. To exit this mode, use the methods described above to confirm or cancel the operation.</p>
         <p>For group renaming files, the <a href="multirename.html">appropriate tool</a> is available.</p>

@@ -332,7 +332,7 @@
           <li><p>Windows: [<code>d</code> or <code>l</code>]<code>rahs</code>[<code>c</code> or <code>e</code>]<code>tp</code></p></li>
           <li><p>Unix/Linux: [<code>b</code>, <code>c</code>, <code>d</code>, <code>f</code>, <code>l</code> or <code>s</code>]<code>rwxrwxrwx</code></p></li>
         </ul>
-        <p>i.e. the template must match the attribute text string in the file list. Description of values:</p>
+        <p>i.e. the template must match the text string of attributes in the file list in the file panel. Description of values:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Attributes in Windows</th></tr>
           <tr class="rowsubtitle"><th class="namecolumn">Attribute letter</th><th class="categorydesccolumn">What it stands for</th></tr>
@@ -369,6 +369,7 @@
         <p class="figure"><img class="largeimage" title="Keys" alt="Keys" src="images/imgDC/pic60.png" width="578" height="168"></p>
         <p>Here you can set the action on pressing some keys in the active file panel: <span class="italic">Letters</span>, <span class="italic">Alt+Letters</span>, <span class="italic">Ctrl+Alt+Letters</span>. You can choose one of the following actions: do nothing, set focus to command line and enter command, run <p><a href="help.html#cm_QuickSearch">quick search or quick filter</a>.</p>
         <p><span class="italic">Left, Right arrows change directory (Lynx-like movement)</span>&nbsp;&ndash; <kbd>right arrow</kbd> opens directory or runs a program under cursor, <kbd>left arrow</kbd> opens parent directory (only in the <a href="help.html#iface_files">full mode</a>).</p>
+        <p><span class="italic">Force F1, F2, etc. to be treated as function keys ignore the settings in System Settings&nbsp;&gt; Keyboard</span> (macOS only)<span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; By default, function keys (F1-F12) in macOS control system functions, but this parameter allows you to force these keys to work in standard mode without changing global system settings. This feature requires additional system permission, enabling it will automatically guide you to the System Settings&nbsp;&gt; Privacy &amp; Security&nbsp;&gt; Accessibility Panel.</p>
         <br>
 
         <p><span class="bold"><a name="ConfigHotKeys">2.6.1. Keys&nbsp;&gt; Hot Keys</a></span></p>
@@ -468,7 +469,7 @@
 
         <p><span class="bold"><a name="ConfigView">2.8. Files views</a></span></p>
         <p>In this section, you can set various file sorting options and date/time and size formats.</p>
-        <p class="figure"><img class="largeimage" title="Files views: sorting and formatting" alt="Files views: sorting and formatting" src="images/imgDC/pic34.png" width="710" height="426"></p>
+        <p class="figure"><img class="largeimage" title="Files views: sorting and formatting" alt="Files views: sorting and formatting" src="images/imgDC/pic34.png" width="710" height="453"></p>
 
         <p><span class="italic">Sort method</span>&nbsp;&ndash; sets the sorting method in the file panels:</p>
         <ul>
@@ -545,6 +546,7 @@
           <li><p><span class="italic">Header format</span>&nbsp;&ndash; will be used in the drives list and free space label.</p></li>
           <li><p><span class="italic">Footer format</span>&nbsp;&ndash; will be used in the status bar of the file panels.</p></li>
           <li><p><span class="italic">Operation size format</span>&nbsp;&ndash; will be used in the file operations dialogs: copying, moving, calculating checksums and so on.</p></li>
+          <li><p><span class="italic">1K=</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; allows to choose the size representation: use binary (2<sup>n</sup>: KiB, MiB, GiB, TiB) or decimal (10<sup>n</sup>: KB, MB, GB, TB) prefixes. The selected value also affects the size in the <a href="findfiles.html">file search</a> and <a href="help.html#cm_FileSpliter">file splitting</a> tools.</p></li>
         </ul>
         <p>Also on the right you can set the number of digits after the decimal separator (i.e. separator for integer and fractional parts of a number): 0, 1, 2 or 3.</p>
         <p>File size units: bytes, kilobytes, megabytes, gigabytes, terabytes or float (Double Commander will choose the unit automatically based on the size).</p>
@@ -552,7 +554,7 @@
         <br>
 
         <p><span class="bold"><a name="ConfigViewEx">2.8.1. Files views&nbsp;&gt; Files views extra</a></span></p>
-        <p class="figure"><img class="largeimage" title="Files views extra" alt="Files views extra" src="images/imgDC/pic63.png" width="628" height="383"></p>
+        <p class="figure"><img class="largeimage" title="Files views extra" alt="Files views extra" src="images/imgDC/pic63.png" width="628" height="410"></p>
         <p>Marking/Unmarking entries:</p>
         <ul>
           <li><p><span class="italic">Windows style filter when marking files ("*.*" also select files without extension, etc.)</span>&nbsp;&ndash; By default, the mask "*.*" matches the name of any file that has an extension, for any file names use the mask "*". If enabled, the mask "*.*" will match any file.</p></li>
@@ -570,10 +572,12 @@
         <p><span class="italic">Show square brackets around directories</span>&nbsp;&ndash; helps to visually distinguish directories from files when icons are disabled. Also you can use any symbols instead them, see description of <code>&lt;FolderPrefix&gt;</code> and <code>&lt;FolderPostfix&gt;</code> parameters <a href="configxml.html">here</a>.</p>
         <p><span class="italic"><a name="show_hidden">Show system and hidden files</a></span>&nbsp;&ndash; If enabled, Double Commander will show files and folders which have the "hidden" or "system" attribute (Windows) or the name with a dot character in the beginning (Linux and other Unix-like systems). This can also can be changed from the <a href="help.html#cm_ShowSysFiles">main menu</a>.</p>
         <p>The parameters <span class="italic">Load file list in separate thread</span> and <span class="italic">Load icons after file list</span> are designed to speed up the display of the list of files in the panel, i.e.the application window will hang less when opening large directories.</p>
-        <p><span class="italic">Don't load file list until a tab is activated</span>&nbsp;&ndash; When launched, Double Commander will not load the list of files of inactive tabs that were opened in the previous session.</p>
+        <p><span class="italic">Don't load file list until a tab is activated</span>&nbsp;&ndash; When launched, Double Commander will not load the list of files of inactive tabs that were opened in the previous session.<br>
+          If the tab's path is unavailable (for example, removable/unmounted drive or offline network share), Double Commander will preserve the tab's path until access is restored. For such tabs, you can enable the indicator (see the <a href="#ConfigTabs">Folder tabs</a> settings section). Otherwise, Double Commander will change the path to the nearest existing path in the directory tree.<span class="versionref"><sup>(Alpha version)</sup></span></p>
         <p><span class="italic">Highlight new and updated files</span>&nbsp;&ndash; If enabled, the names of files that are currently being created or modified will flash.</p>
         <p><span class="italic">Enable inplace renaming when clicking twice on a name</span>&nbsp;&ndash; is an additional ability to rename the file using the left mouse click (it does not depend on the the chosen key for selection with the mouse), as in Windows Explorer. After clicking, the mouse cursor must stay still for at least one second. In the <a href="#ConfigMouse">mouse settings</a> section, double click for files and folders or just files should be selected.</p>
         <p><span class="italic">Enable changing to parent folder when double-clicking on empty part of file view</span>&nbsp;&ndash; is an additional feature to simplify directory navigation. But not applicable if you are using a column set and the list of files in the current directory does not fit in the panel (i.e. you see a vertical scroll bar).</p>
+        <p><span class="italic">Extra line span</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; allows to add some extra pixels to the height allowed for each element displayed in the file panels. The value is interpreted directly in pixels.</p>
         <br>
 
         <p><span class="bold"><a name="ConfigViewBrief">2.8.2. Files views&nbsp;&gt; Brief</a></span></p>
@@ -618,7 +622,7 @@
         <p class="figure"><img class="largeimage" title="Columns" alt="Columns" src="images/imgDC/pic37.png" width="612" height="46"></p>
         <p><span class="italic">Column</span>&nbsp;&ndash; shows the indicator of the selected column.</p>
         <p><span class="italic">Caption</span>&nbsp;&ndash; specifies the name of the column which will be displayed in the <a href="help.html#iface_columns">tabstop headers bar</a>. You can set any name you like.</p>
-        <p><span class="italic">Width</span>&nbsp;&ndash; column width (in pixels) which will be set on program start. Note: the width depends on the column content, e.g. the file extension column will have a small width.</p>
+        <p><span class="italic">Width</span>&nbsp;&ndash; column width (in pixels) which will be set on program start. Note: the width depends on the column content, e.g. the file extension column will have a small width. Also pay attention to the <a href="help.html#iface_columns">use of the mouse</a>.</p>
         <p><span class="italic">Align</span>&nbsp;&ndash; sets the alignment of the content of the column. Variants are:</p>
         <ul>
           <li><p><tt>"&lt;-"</tt>&nbsp;&ndash; align left;</p></li>
@@ -712,7 +716,7 @@
         <p>You can change the layout of the main window here. I suppose, all the available options are explained on the screenshot above (Layout). The screenshot below illustrates what DC looks like with all the layout options unselected.</p>
         <p class="figure"><img class="largeimage" title="Layout DC" alt="Layout DC" src="images/imgDC/pic40.png" width="707" height="382"></p>
         <p>There are also <a href="configxml.html">several parameters</a> available that can only be changed manually in the <tt>doublecmd.xml</tt> configuration file.</p>
-        <p>Starting from macOS 11, Double Commanderhe has a toolbar in the window header by default, in addition to the main toolbar. You can disable this UI element manually: close Double Commander, go to the configuration files directory (see details <a href="#ConfigDC">here</a>), open the <tt>doublecmd.cfg</tt> file, find the <code>ModernUI</code> parameter, change its value from <code>True</code> to <code>False</code> and run the application again.</p>
+        <p>Starting from macOS 11, Double Commanderhe has a toolbar in the window header by default, in addition to the main toolbar. Also, a similar panel with buttons that provide quick access to frequently used actions is enabled in the built-in editor and file comparison tool (in this case, the usual toolbars will be hidden). You can disable this UI element manually: close Double Commander, go to the configuration files directory (see details <a href="#ConfigDC">here</a>), open the <tt>doublecmd.cfg</tt> file, find the <code>ModernUI</code> parameter, change its value from <code>True</code> to <code>False</code> and run the application again.</p>
         <br>
 
         <p><span class="bold"><a name="ConfigDrivesList">2.10.1. Layout&nbsp;&gt; Drives list button</a></span></p>
@@ -792,7 +796,7 @@
         <br>
 
         <p><span class="bold"><a name="ConfigTabs">2.13. Folder tabs</a></span></p>
-        <p class="figure"><img class="largeimage" title="Folder tabs" alt="Folder tabs" src="images/imgDC/pic72.png" width="578" height="440"></p>
+        <p class="figure"><img class="largeimage" title="Folder tabs" alt="Folder tabs" src="images/imgDC/pic72.png" width="578" height="465"></p>
         <p><span class="italic">Show tab header also when there is only one tab</span>&nbsp;&ndash; If this option is disabled and there is only one tab on the panel, a tab header won't appear (usually this is more visually attractive).</p>
         <p><span class="italic">Tabs on multiple lines</span> (Windows only)&nbsp;&ndash; If the folder tabs do not fit in one line, then they will be placed in several lines. Otherwise, buttons to scroll them will be shown on the right (GTK2: on the right and left).</p>
         <p><span class="italic">Limit tab title length to</span>&nbsp;&ndash; Tabs with long names will be limited to this length and the displayed name will be truncated if longer than this value.</p>
@@ -803,8 +807,10 @@
         <p><span class="italic">Open new tabs near current tab</span>&nbsp;&ndash; If enabled, new tab will be created on the right next to the currently active tab. If not, new tabs will be added to the right after the last tab.</p>
         <p><span class="italic">Reuse existing tab when possible</span>&nbsp;&ndash; For locked tab with directory change in new tab: if the selected folder is already open on any tab, then this tab will be activated instead of creating a new tab.</p>
         <p><span class="italic"><a name="5_1_11_3_vopros">Show tab close button</a></span> (Unix-like systems only)&nbsp;&ndash; If selected, a small "x" button will appear on tabs allowing to click on it to close them.</p>
-        <p><span class="italic"><a name="5_1_12_1_zvezda">Show locked tabs with an asterisk *</a></span>&nbsp;&ndash; to distinguish between locked and unlocked tabs. Locked tabs will be marked by "*". Tab <tt>Downloads</tt> is locked:</p>
+        <p><span class="italic"><a name="5_1_12_1_zvezda">Show locked tabs with an asterisk *</a></span>&nbsp;&ndash; To distinguish between locked and unlocked tabs. Locked tabs will be marked by "*". Tab <tt>Downloads</tt> is locked:</p>
         <p class="figure"><img class="largeimage" title="Tabs" alt="Tabs" src="images/imgDC/pic6.png" width="228" height="28"></p>
+        <p><span class="italic">Mark unavailable path in tab title with a question mark ?</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; To distinguish tabs with an unavailable path when launching the application (for example, removable/unmounted drive or offline network share), a question mark "?" will be added to the beginning of the names of such tabs.<br>
+          This feature works if the <span class="italic">Don't load file list until a tab is activated</span> parameter is enabled (see the <a href="#ConfigViewEx">Files views extra</a> settings section), enabled by default.</p>
         <p><span class="italic">Keep renamed name when unlocking a tab</span>&nbsp;&ndash; When you change the state of a tab from "locked tab" on "normal tab", Double Commander returns the usual tab name (current folder name): this option allows to keep the changed name.</p>
         <p><span class="italic">Activate target panel when clicking on one of its Tabs</span>&nbsp;&ndash; If enabled, when you click the mouse on a tab on the other panel, the focus will automatically be transferred to it (it will become the active panel). Also the cursor position will be retained when switching between panels this way.</p>
         <p><span class="italic">Always show drive letter in tab title</span> (Windows only)&nbsp;&ndash; Show drive letter and a colon before the folder name, e.g. "c:plugins".</p>
@@ -878,7 +884,7 @@
           <li><p><span class="italic">Search/Replace history</span>&nbsp;&ndash; <a href="findfiles.html">File search</a> history (except for file name masks, see below), history of masks in the <a href="multirename.html">Multi-Rename Tool</a> and history of searching and replacing text: search by file contents, viewer, built-in editor and built-in differ, search and replace in directory hotlist and toolbar settings. The state of the text search options (<span class="italic">Case sensitive</span>, <span class="italic">Regular expressions</span> and <span class="italic">Hexadecimal</span>) for each entry is also saved.</p></li>
           <li><p><span class="italic">Directory history</span>&nbsp;&ndash; List of all visited directories (see note below).</p></li>
           <li><p><span class="italic">Command line history</span>&nbsp;&ndash; Commands that were used at the <a href="help.html#iface_path">command line</a>.</p></li>
-          <li><p><span class="italic">File mask history</span>&nbsp;&ndash; Double Commander saves a general history of used file masks for several tools: find files, filters in <a href="syncdirs.html">directory synchronization</a> and <a href="help.html#cm_ExtractFiles">archive unpacking</a>, commands for <a href="help.html#cm_MarkPlus">selecting and deselecting a group of files</a>.</p></li>
+          <li><p><span class="italic">File mask history</span>&nbsp;&ndash; Double Commander saves a general history of used file masks for several tools: find files, filters in <a href="help.html#cm_ExtractFiles">archive unpacking</a>, commands for <a href="help.html#cm_MarkPlus">selecting and deselecting a group of files</a>. The history of filter usage in <a href="syncdirs.html">directory synchronization</a> is stored separately.</p></li>
         </ul>
         <p>The maximum number of entries in history is limited to 50 by default (see the <code>MaxStringItems</code> attribute in the <a href="configxml.html">&lt;History&gt;</a> tag).</p>
         <p>Note about the history of visited directories: During the session, Double Commander stores up to 255 visited directories in memory, however, when the program is closed, the number of saved entries will be limited to the <code>MaxStringItems</code> value. You can change the number of history entries in the popup menu when calling the <a href="cmds.html#cm_DirHistory">cm_DirHistory</a> command (default value is 30, see the <code>Count</code> attribute in the <a href="configxml.html">&lt;DirHistory&gt;</a> tag), but when using the <a href="#ConfigTreeMenu">Tree View Menu</a>, all available history will be shown.</p>
