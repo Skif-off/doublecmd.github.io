@@ -110,20 +110,21 @@
               <dt>2.16. <a href="#ConfigQuick">Quick search/filter</a></dt>
               <dt>2.17. <a href="#ConfigMisc">Miscellaneous</a></dt>
               <dt>2.18. <a href="#ConfigRefresh">Auto refresh</a></dt>
-              <dt>2.19. <a href="#ConfigIcons">Icons</a></dt>
-              <dt>2.20. <a href="#ConfigIgnore">Ignore list</a></dt>
-              <dt>2.21. <a href="#ConfigArchivers">Archivers</a></dt>
-              <dt>2.22. <a href="#ConfigTooltips">Tooltips</a></dt>
-              <dt>2.23. <a href="#ConfigAssociations">File associations</a></dt>
+              <dt>2.19. <a href="#ConfigiCloud">iCloud</a></dt>
+              <dt>2.20. <a href="#ConfigIcons">Icons</a></dt>
+              <dt>2.21. <a href="#ConfigIgnore">Ignore list</a></dt>
+              <dt>2.22. <a href="#ConfigArchivers">Archivers</a></dt>
+              <dt>2.23. <a href="#ConfigTooltips">Tooltips</a></dt>
+              <dt>2.24. <a href="#ConfigAssociations">File associations</a></dt>
               <dd>
                 <dl>
-                  <dt>2.23.1. <a href="#ConfigAssocEx">File associations extra</a></dt>
+                  <dt>2.24.1. <a href="#ConfigAssocEx">File associations extra</a></dt>
                 </dl>
               </dd>
-              <dt>2.24. <a href="#ConfigDirHotlist">Directory Hotlist</a></dt>
+              <dt>2.25. <a href="#ConfigDirHotlist">Directory Hotlist</a></dt>
               <dd>
                 <dl>
-                  <dt>2.24.1. <a href="#ConfigDirHotlistEx">Directory Hotlist Extra</a></dt>
+                  <dt>2.25.1. <a href="#ConfigDirHotlistEx">Directory Hotlist Extra</a></dt>
                 </dl>
               </dd>
             </dl>
@@ -278,6 +279,7 @@
           <li><p>internal editor;</p></li>
           <li><p>internal viewer (if viewer shows text then this action will change font size, if image then action will work as zoom in/zoom out commands).</p></li>
         </ul>
+        <p>Also you can choose the type of font rasterization (regardless of the system settings), see description of <a href="configxml.html">&lt;Quality&gt;</a>.</p>
         <br>
 
         <p><span class="bold"><a name="ConfigColor">2.5. Colors</a></span></p>
@@ -367,7 +369,6 @@
         <p>The second part of the Unix/Linux template displays permissions: read (r), write (w), execute (x). The values are grouped in groups of three in the following order: user (owner), user's group, all others.</p>
         <p>If attribute should not be set, it must be replaced with the "-" symbol, unnecessary attributes should be hidden: symbol "*" means match any number of characters, symbol "?" means any one character. For example, <code>?r*</code> (Windows) or <code>?r-*</code> (Linux) will find all read-only files and folders.</p>
         <p>You can use a color from the list or specify yours using the ".." button.</p>
-        <p>Do not forget to click "Apply" button after customization.</p>
         <p>Double Commander checks the list from top to bottom until the first match: a rule higher in the list will overlap any rule below.</p>
         <br>
 
@@ -636,7 +637,7 @@
           <li><p><tt>GETFILEOWNER</tt>&nbsp;&ndash; displays the owner of the file.</p></li>
           <li><p><tt>GETFILELINKTO</tt>&nbsp;&ndash; displays the path and file, that is, what is linked with this symlink.</p></li>
           <li><p><tt>GETFILETYPE</tt>&nbsp;&ndash; file type (as in Windows Explorer or MIME-type).</p></li>
-          <li><p><tt>GETFILECOMMENT</tt>&nbsp;&ndash; file or directory description (comment) from <tt>descript.ion</tt> (see details <a href="help.html#cm_EditComment">here</a>).</p></li>
+          <li><p><tt>GETFILECOMMENT</tt>&nbsp;&ndash; file or directory description (comment) from <tt>descript.ion</tt> (see details <a href="help.html#cm_EditComment">here</a>). This field can also be used inside archives (if the archive format supports saving file descriptions and the corresponding <a href="multiarc.html#archivers">external archiver</a> is configured to receive them).</p></li>
           <li><p><tt>GETFILECOMPRESSEDSIZE</tt>&nbsp;&ndash; compressed file size (real size if using NTFS compression).</p></li>
         </ul>
         <p><span class="italic">Move</span>&nbsp;&ndash; allows to move lines (which equates to reordering the columns). Click twice in the Move box and you will see a type of spinner appear, clicking on the upper part moves the line up (column moves left).</p>
@@ -868,8 +869,8 @@
           <li><p><span class="italic">Command line history</span>&nbsp;&ndash; Commands that were used at the <a href="help.html#iface_path">command line</a>.</p></li>
           <li><p><span class="italic">File mask history</span>&nbsp;&ndash; Double Commander saves a general history of used file masks for several tools: find files, filters in <a href="syncdirs.html">directory synchronization</a> and <a href="help.html#cm_ExtractFiles">archive unpacking</a>, commands for <a href="help.html#cm_MarkPlus">selecting and deselecting a group of files</a>.</p></li>
         </ul>
-        <p>The maximum number of entries in history is limited to 50.</p>
-        <p>Note about the history of visited directories: During the session, Double Commander stores up to 255 visited directories in memory (however, when the program is closed, only the last 50 entries will be saved). You can change the number of history entries in the popup menu when calling the <a href="cmds.html#cm_DirHistory">cm_DirHistory</a> command (default value is 30, see the <code>Count</code> attribute in the <a href="configxml.html">&lt;DirHistory&gt;</a> tag), but when using the <a href="#ConfigTreeMenu">Tree View Menu</a>, all available history will be shown.</p>
+        <p>The maximum number of entries in history is limited to 50 by default (see the <code>MaxStringItems</code> attribute in the <a href="configxml.html">&lt;History&gt;</a> tag).</p>
+        <p>Note about the history of visited directories: During the session, Double Commander stores up to 255 visited directories in memory, however, when the program is closed, the number of saved entries will be limited to the <code>MaxStringItems</code> value. You can change the number of history entries in the popup menu when calling the <a href="cmds.html#cm_DirHistory">cm_DirHistory</a> command (default value is 30, see the <code>Count</code> attribute in the <a href="configxml.html">&lt;DirHistory&gt;</a> tag), but when using the <a href="#ConfigTreeMenu">Tree View Menu</a>, all available history will be shown.</p>
         <p>Note: Search templates are not related to the history and are saved separately (in the <tt>doublecmd.xml</tt> configuration file). To manage the list of templates, you can use the <a href="findfiles.html#templates">file search</a> tool.</p>
         <p>You can choose how the list of settings sections will look:</p>
         <ul>
@@ -937,12 +938,16 @@
         </ul>
         <br>
 
-        <p><span class="bold"><a name="ConfigIcons">2.19. Icons</a></span></p>
+        <p><span class="bold"><a name="ConfigiCloud">2.19. iCloud</a></span></p>
+        <p>macOS only. This section of the settings lists installed applications that automatically create folders in iCloud Drive: you can choose the application folders that will be available in the <a href="help.html#cm_OpenVirtualFileSystemList">iCloud virtual folder</a>.</p>
+        <br>
+
+        <p><span class="bold"><a name="ConfigIcons">2.20. Icons</a></span></p>
         <p class="figure"><img class="largeimage" title="Icons" alt="Icons" src="images/imgDC/pic77.png" width="578" height="558"></p>
         <p>The first option enables the display of the file type icons to the left of the name:</p>
         <ul>
-          <li><p><span class="italic">All associated + EXE/LNK (slow)</span>&nbsp;&ndash; Same as <span class="italic">All</span>, but additionally extracts icons from .exe files and shortcuts.</p></li>
-          <li><p><span class="italic">All</span>&nbsp;&ndash; Icons for all file types associated with any program will be displayed (from system settings and Double Commander <a href="#ConfigAssociations">file associations</a>). Also DC will show the folder icon specified in the <tt>desktop.ini</tt> (Windows) and <tt>.directory</tt> (Linux) files.</p></li>
+          <li><p><span class="italic">All associated + EXE/LNK (slow)</span>&nbsp;&ndash; Same as <span class="italic">All</span>, but additionally: icons from .exe, .ico, .cur, .ani and shortcuts (Windows), application icons from application catalogs (i.e. .app, macOS), .desktop and .directory (Linux and other Unix-like systems). Also DC will show the folder icon specified in the <tt>desktop.ini</tt> (Windows) and <tt>.directory</tt> (Linux) files.</p></li>
+          <li><p><span class="italic">All</span>&nbsp;&ndash; Icons for all file types associated with any program will be displayed (from system settings and Double Commander <a href="#ConfigAssociations">file associations</a>).</p></li>
           <li><p><span class="italic">Only standard icons</span>&nbsp;&ndash; Only the icons listed in the <tt>pixmaps.txt</tt> file and the icons from the file association settings will be displayed. In this case, you can use icons only from the Double Commander icon theme (see directories <tt>pixmaps/dctheme/XxX/mimetypes</tt> in the program folder) or specify the full (with path) file name. Creating an icon theme is described in the <a href="faq.html#theme">FAQ</a>.</p></li>
           <li><p><span class="italic">No icons</span>.</p></li>
         </ul>
@@ -961,7 +966,7 @@
         <p>Note: In Unix-like systems, Double Commander will primarily use the system icon theme, if some icons does not exist, it will use its own.</p>
         <br>
 
-        <p><span class="bold"><a name="ConfigIgnore">2.20. Ignore list</a></span></p>
+        <p><span class="bold"><a name="ConfigIgnore">2.21. Ignore list</a></span></p>
         <p>Ignore specific files and folders (one per line): they will not be displayed in panels.</p>
         <p class="figure"><img class="largeimage" title="Ignore list" alt="Ignore list" src="images/imgDC/pic78.png" width="578" height="370"></p>
         <ul>
@@ -976,11 +981,11 @@
         <p>You can use the internal command <a href="cmds.html#cm_SwitchIgnoreList">cm_SwitchIgnoreList</a> to turn this option on and off, add a button on toolbar or hotkey.</p>
         <br>
 
-        <p><span class="bold"><a name="ConfigArchivers">2.21. Archivers</a></span></p>
+        <p><span class="bold"><a name="ConfigArchivers">2.22. Archivers</a></span></p>
         <p>Please see the dedicated <a href="multiarc.html">Archive handling</a> help page about how to use and configure it.</p>
         <br>
 
-        <p><span class="bold"><a name="ConfigTooltips">2.22. Tooltips</a></span></p>
+        <p><span class="bold"><a name="ConfigTooltips">2.23. Tooltips</a></span></p>
         <p>This section contains the settings for tooltips when the mouse cursor is hovering over a file.</p>
         <p class="figure"><img class="largeimage" title="Tooltips" alt="Tooltips" src="images/imgDC/pic47.png" width="724" height="416"></p>
         <p><span class="italic">Show tooltip for files in the file panel</span>&nbsp;&ndash; enables the ability to use tooltips.</p>
@@ -1021,7 +1026,7 @@
         <p>In the screenshot at the beginning of the section description, you can see an example of a tooltip with the <tt>textline.wdx</tt> plugin that shows the contents of the selected lines of a text file (in this case, the first, second and third lines), the <span class="italic">Combine DC and system tooltip, system first</span> mode is selected.</p>
         <br>
 
-        <p><span class="bold"><a name="ConfigAssociations">2.23. File associations</a></span></p>
+        <p><span class="bold"><a name="ConfigAssociations">2.24. File associations</a></span></p>
         <p>This item opens the configuration file associations. All association sets are contained in the file <tt>extassoc.xml</tt>.</p>
         <p>Here you can customize file associations and set commands or scripts for chosen file types. Commands will be added to the <a href="help.html#cm_ContextMenu">context menu</a> of files. Double Commander also allows to simply set (or replace) icons for file types, without adding any actions.</p>
         <p class="figure"><img class="largeimage" title="File associations" alt="File associations" src="images/imgDC/pic48.png" width="578" height="538"></p>
@@ -1072,7 +1077,7 @@
         </ul>
         <p>"View" actions with the <tt>{!DC-VIEWER}</tt> macro will be taken into account for <a href="viewer.html#quick">quick viewing</a>, other macros and commands will be ignored.</p>
         <p><tt>{!TERMSTAYOPEN}</tt> and <tt>{!TERMANDCLOSE}</tt> have been added for unification and the ability to use the variables <a href="variables.html#executeterm">%t0 and %t1</a>, <tt>{!SHELL}</tt> has been kept for backwards compatibility.</p>
-        <p>As a command, you can use the <a href="cmds.html">internal commands</a> of Double Commander. The parameters of the internal commands are specified one per line, so you can specify only one here. Also, using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>, you can run <a href="lua.html">Lua scripts</a>, in this case you can get the names of the selected files using <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> or <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>.</p>
+        <p>As a command, you can use the <a href="cmds.html">internal commands</a> of Double Commander. The parameters of the internal commands are specified one per line, so you can specify only one here. Also, using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>, you can run <a href="lua.html">Lua scripts</a>, in this case you can get the names of the selected files using internal commands (<a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> or <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>) or the <a href="lua.html#dc_expandvar">DC.ExpandVar</a><span class="versionref"><sup>(Alpha version)</sup></span> function.</p>
         <p><span class="italic">Parameters</span>&nbsp;&ndash; command parameters including variables:</p>
         <ul>
           <li><p>any variable from <a href="variables.html">"percent" variables</a>.</p></li>
@@ -1084,7 +1089,7 @@
         <p class="figure"><img class="largeimage" title="Context menu" alt="Context menu" src="images/imgDC/pic49.png" width="460" height="288"></p>
         <br>
 
-        <p><span class="bold"><a name="ConfigAssocEx">2.23.1. File associations&nbsp;&gt; File associations extra</a></span></p>
+        <p><span class="bold"><a name="ConfigAssocEx">2.24.1. File associations&nbsp;&gt; File associations extra</a></span></p>
         <p class="figure"><img class="largeimage" title="File associations extra" alt="File associations extra" src="images/imgDC/pic79.png" width="578" height="366"></p>
         <p><span class="italic">Offer to add selection to file association when not included already</span>&nbsp;&ndash; When accessing file association, offer to add current selected file if not already included in a configured file type. This is a quick way to add an "Open with" action: Double Commander will prompt you to specify a type name and an executable file, everything else will be done automatically.</p>
         <p><span class="italic">Extended context menu</span>&nbsp;&ndash; allows to add some items to the "Actions" submenu:</p>
@@ -1108,11 +1113,11 @@
         <p>Also you can apply the chosen way to the already added paths.</p>
         <br>
 
-        <p><span class="bold"><a name="ConfigDirHotlist">2.24. Directory Hotlist</a></span></p>
+        <p><span class="bold"><a name="ConfigDirHotlist">2.25. Directory Hotlist</a></span></p>
         <p>Please see the dedicated <a href="directoryhotlist.html">Directory Hotlist</a> help page about how to use and configure it.</p>
         <br>
 
-        <p><span class="bold"><a name="ConfigDirHotlistEx">2.24.1. Directory Hotlist&nbsp;&gt; Directory Hotlist Extra</a></span></p>
+        <p><span class="bold"><a name="ConfigDirHotlistEx">2.25.1. Directory Hotlist&nbsp;&gt; Directory Hotlist Extra</a></span></p>
         <p class="figure"><img class="largeimage" title="Directory Hotlist Extra" alt="Directory Hotlist Extra" src="images/imgDC/pic80.png" width="578" height="165"></p>
         <p>In this section you can choose how the path will be set the path and target path:</p>
         <ul>
