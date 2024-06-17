@@ -195,6 +195,28 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;Sounds&gt;<span class="versionref"><sup>(Alpha version)</sup></span><br><small>from &lt;FileOperations&gt;</small></div></td>
+            <td class="hintcell">
+              Enables sound notifications when file operations are finished. Possible contents of the <code>&lt;Sounds&gt;</code> tag in full:<br>
+            <pre>
+&lt;Sounds Duration="10"&gt;
+  &lt;Copy&gt;C:\Windows\Media\Alarm01.wav&lt;/Copy&gt;
+  &lt;Move&gt;C:\Windows\Media\Alarm01.wav&lt;/Move&gt;
+  &lt;Wipe&gt;C:\Windows\Media\Alarm01.wav&lt;/Wipe&gt;
+  &lt;Delete&gt;C:\Windows\Media\Alarm01.wav&lt;/Delete&gt;
+  &lt;Split&gt;C:\Windows\Media\Alarm01.wav&lt;/Split&gt;
+  &lt;Combine&gt;C:\Windows\Media\Alarm01.wav&lt;/Combine&gt;
+&lt;/Sounds&gt;</pre>
+              <code>Duration</code> is the minimum time (in seconds) that a file operation should last (0&nbsp;&ndash; always on, -1 disables sound notifications).<br>
+              File operations: copy, move, wipe, delete files, split file and combine files. If a sound notification is not needed for some operation, just remove (or do not add) the corresponding line. <a href="variables.html#envvariables">Environment variables are supported</a>.<br>
+              Supported audio formats:<br>
+              - Windows (the <tt>sndPlaySoundW</tt> function from the Windows API): .wav.<br>
+              - macOS (the Core Audio API): .aac, .adts, .ac3, .caf, .mp3, .m4a and .mp4 (with AAC or ALAC), .wav.<br>
+              - Linux and other Unix-like systems: Double Commander can use the GStreamer library (primarily, <tt>libgstreamer-1.0.so.0</tt>) or the SDL2 library (<tt>libSDL2-2.0.so.0</tt>). GStreamer supports most popular audio formats, with SDL2 we can use only .wav. In Haiku, only SDL2 can be used.
+            </td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;CopyAttributes&gt;<br><small>from &lt;FileOperations&gt;&lt;Options&gt;</small></div></td>
             <td class="hintcell">
               Windows: if <code>True</code>, the attributes of the source file will be copied when copying/moving files; if <code>False</code>, the attributes of the source file will also be copied and Double Commander will set the "archive" attribute.<br>
@@ -340,6 +362,11 @@
 
           <tr>
             <td colspan="2"></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">Attribute <i>MaxStringItems</i><span class="versionref"><sup>(Alpha version)</sup></span><br><small>from &lt;History&gt;</small></div></td>
+            <td class="hintcell">The <code>MaxStringItems</code> attribute allows to specify the maximum number of entries in the <a href="configuration.html#ConfigDC">saved history</a>. Default value is 50.</td>
           </tr>
 
           <tr>
