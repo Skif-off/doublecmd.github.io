@@ -524,15 +524,14 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">nn</div></td><td class="hintcell">minute (leading zero)</td><td class="hintcell">06</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">second</td><td class="hintcell">2</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">ss</div></td><td class="hintcell">second (leading zero)</td><td class="hintcell">02</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">z</div></td><td class="hintcell">milliseconds *</td><td class="hintcell">1</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">zzz</div></td><td class="hintcell">milliseconds (leading zero) *</td><td class="hintcell">001</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">z</div></td><td class="hintcell">milliseconds</td><td class="hintcell">1</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">zzz</div></td><td class="hintcell">milliseconds (leading zero)</td><td class="hintcell">001</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">t</div></td><td class="hintcell">short time format</td><td class="hintcell">9:06</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">tt</div></td><td class="hintcell">long time format</td><td class="hintcell">9:06:02</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">am/pm</div></td><td class="hintcell">use 12 hour clock and display am and pm accordingly (also <tt>AM/PM</tt>, <tt>a/m</tt> or <tt>A/M</tt>); for example, <code>t&nbsp;AM/PM</code></td><td class="hintcell">9:06 am</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">/</div></td><td class="hintcell">insert date separator</td><td class="hintcell">/</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">:</div></td><td class="hintcell">insert time separator</td><td class="hintcell">:</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">"text"</div></td><td class="hintcell">literal text; for example, <code>yyyy "AD"</code></td><td class="hintcell">2021 AD</td></tr>
-          <tr><td class="hintcell" colspan="3">* Windows only</td></tr>
         </table>
 
         <p>The next parameters sets the file size format:</p>
@@ -637,7 +636,7 @@
           <li><p><tt>GETFILEOWNER</tt>&nbsp;&ndash; displays the owner of the file.</p></li>
           <li><p><tt>GETFILELINKTO</tt>&nbsp;&ndash; displays the path and file, that is, what is linked with this symlink.</p></li>
           <li><p><tt>GETFILETYPE</tt>&nbsp;&ndash; file type (as in Windows Explorer or MIME-type).</p></li>
-          <li><p><tt>GETFILECOMMENT</tt>&nbsp;&ndash; file or directory description (comment) from <tt>descript.ion</tt> (see details <a href="help.html#cm_EditComment">here</a>).</p></li>
+          <li><p><tt>GETFILECOMMENT</tt>&nbsp;&ndash; file or directory description (comment) from <tt>descript.ion</tt> (see details <a href="help.html#cm_EditComment">here</a>). This field can also be used inside archives (if the archive format supports saving file descriptions and the corresponding <a href="multiarc.html#archivers">external archiver</a> is configured to receive them).</p></li>
           <li><p><tt>GETFILECOMPRESSEDSIZE</tt>&nbsp;&ndash; compressed file size (real size if using NTFS compression).</p></li>
         </ul>
         <p><span class="italic">Move</span>&nbsp;&ndash; allows to move lines (which equates to reordering the columns). Click twice in the Move box and you will see a type of spinner appear, clicking on the upper part moves the line up (column moves left).</p>
@@ -869,8 +868,8 @@
           <li><p><span class="italic">Command line history</span>&nbsp;&ndash; Commands that were used at the <a href="help.html#iface_path">command line</a>.</p></li>
           <li><p><span class="italic">File mask history</span>&nbsp;&ndash; Double Commander saves a general history of used file masks for several tools: find files, filters in <a href="syncdirs.html">directory synchronization</a> and <a href="help.html#cm_ExtractFiles">archive unpacking</a>, commands for <a href="help.html#cm_MarkPlus">selecting and deselecting a group of files</a>.</p></li>
         </ul>
-        <p>The maximum number of entries in history is limited to 50.</p>
-        <p>Note about the history of visited directories: During the session, Double Commander stores up to 255 visited directories in memory (however, when the program is closed, only the last 50 entries will be saved). You can change the number of history entries in the popup menu when calling the <a href="cmds.html#cm_DirHistory">cm_DirHistory</a> command (default value is 30, see the <code>Count</code> attribute in the <a href="configxml.html">&lt;DirHistory&gt;</a> tag), but when using the <a href="#ConfigTreeMenu">Tree View Menu</a>, all available history will be shown.</p>
+        <p>The maximum number of entries in history is limited to 50 by default (see the <code>MaxStringItems</code> attribute in the <a href="configxml.html">&lt;History&gt;</a> tag).</p>
+        <p>Note about the history of visited directories: During the session, Double Commander stores up to 255 visited directories in memory, however, when the program is closed, the number of saved entries will be limited to the <code>MaxStringItems</code> value. You can change the number of history entries in the popup menu when calling the <a href="cmds.html#cm_DirHistory">cm_DirHistory</a> command (default value is 30, see the <code>Count</code> attribute in the <a href="configxml.html">&lt;DirHistory&gt;</a> tag), but when using the <a href="#ConfigTreeMenu">Tree View Menu</a>, all available history will be shown.</p>
         <p>Note: Search templates are not related to the history and are saved separately (in the <tt>doublecmd.xml</tt> configuration file). To manage the list of templates, you can use the <a href="findfiles.html#templates">file search</a> tool.</p>
         <p>You can choose how the list of settings sections will look:</p>
         <ul>
@@ -1073,7 +1072,7 @@
         </ul>
         <p>"View" actions with the <tt>{!DC-VIEWER}</tt> macro will be taken into account for <a href="viewer.html#quick">quick viewing</a>, other macros and commands will be ignored.</p>
         <p><tt>{!TERMSTAYOPEN}</tt> and <tt>{!TERMANDCLOSE}</tt> have been added for unification and the ability to use the variables <a href="variables.html#executeterm">%t0 and %t1</a>, <tt>{!SHELL}</tt> has been kept for backwards compatibility.</p>
-        <p>As a command, you can use the <a href="cmds.html">internal commands</a> of Double Commander. The parameters of the internal commands are specified one per line, so you can specify only one here. Also, using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>, you can run <a href="lua.html">Lua scripts</a>, in this case you can get the names of the selected files using <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> or <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>.</p>
+        <p>As a command, you can use the <a href="cmds.html">internal commands</a> of Double Commander. The parameters of the internal commands are specified one per line, so you can specify only one here. Also, using the internal command <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a>, you can run <a href="lua.html">Lua scripts</a>, in this case you can get the names of the selected files using internal commands (<a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> or <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>) or the <a href="lua.html#dc_expandvar">DC.ExpandVar</a><span class="versionref"><sup>(Alpha version)</sup></span> function.</p>
         <p><span class="italic">Parameters</span>&nbsp;&ndash; command parameters including variables:</p>
         <ul>
           <li><p>any variable from <a href="variables.html">"percent" variables</a>.</p></li>

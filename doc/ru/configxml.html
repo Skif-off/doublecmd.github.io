@@ -159,6 +159,11 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;DefaultDropEffect&gt;<br><small>в &lt;FileOperations&gt;</small></div></td>
+            <td class="hintcell">Действие по умолчанию при <a href="help.html#draganddrop">перетаскивании файлов</a> мышью: копирование (<code>True</code>) или перемещение (<code>False</code>) файлов. По умолчанию <code>True</code>.</td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">&lt;LongNameAlert&gt;<br><small>в &lt;FileOperations&gt;</small></div></td>
             <td class="hintcell">Предупредить, если целевой путь длиннее максимальной длины для пути (некоторые программы не смогут получить доступ к файлу/каталогу с таким длинным именем). В Windows это значение (MAX_PATH) составляет 260 символов. По умолчанию <code>True</code>.</td>
           </tr>
@@ -184,6 +189,28 @@
                 </tr>
               </table>
               <i>Пример:</i> <code>&lt;NtfsHourTimeDelay&gt;True&lt;/NtfsHourTimeDelay&gt;</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">&lt;Sounds&gt;<span class="versionref"><sup>(Альфа-версия)</sup></span><br><small>в &lt;FileOperations&gt;</small></div></td>
+            <td class="hintcell">
+              Включает звуковые уведомления при завершении файловых операций. Возможное содержимое тега <code>&lt;Sounds&gt;</code> полностью:<br>
+              <pre>
+&lt;Sounds Duration="10"&gt;
+  &lt;Copy&gt;C:\Windows\Media\Alarm01.wav&lt;/Copy&gt;
+  &lt;Move&gt;C:\Windows\Media\Alarm01.wav&lt;/Move&gt;
+  &lt;Wipe&gt;C:\Windows\Media\Alarm01.wav&lt;/Wipe&gt;
+  &lt;Delete&gt;C:\Windows\Media\Alarm01.wav&lt;/Delete&gt;
+  &lt;Split&gt;C:\Windows\Media\Alarm01.wav&lt;/Split&gt;
+  &lt;Combine&gt;C:\Windows\Media\Alarm01.wav&lt;/Combine&gt;
+&lt;/Sounds&gt;</pre>
+              <code>Duration</code>&nbsp;&ndash; минимальное время (в секундах), которое должна продолжаться файловая операция (0&nbsp;&ndash; включено всегда, -1 отключает звуковые уведомления).<br>
+              Файловые операции: копировать, переместить, стереть, удалить файлы, разрезать файл и собрать файлы. Если для какой-то операции не нужно звуковое оповещение, то просто уберите (или не добавляйте) соответствующую строку.Поддерживаются <a href="variables.html#envvariables">переменные окружения</a>.<br>
+              Поддерживаемые форматы аудио:<br>
+              - Windows (функция <tt>sndPlaySoundW</tt> из Windows API): .wav.<br>
+              - macOS (Core Audio API): .aac, .adts, .ac3, .caf, .mp3, .m4a и .mp4 (с AAC или ALAC), .wav.<br>
+              - Linux и другие Unix-подобные системы: Double Commander может использовать библиотеку GStreamer (в первую очередь, <tt>libgstreamer-1.0.so.0</tt>) или библиотеку SDL2 (<tt>libSDL2-2.0.so.0</tt>). GStreamer поддерживает большинство популярных форматов аудио, с SDL2 мы можем использовать только .wav. В Haiku доступно использование только SDL2.
             </td>
           </tr>
 
@@ -336,11 +363,15 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft">Атрибут <i>MaxStringItems</i><br><small>в &lt;History&gt;</small></div></td>
+            <td class="hintcell">Атрибут <code>MaxStringItems</code> позволяет указать максимальное количество записей <a href="configuration.html#ConfigDC">сохраняемой истории</a>. По умолчанию 50.</td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft">Атрибут <i>Count</i><br><small>в &lt;History&gt;&lt;DirHistory&gt;</small></div></td>
             <td class="hintcell">
-              Атрибут <code>Count</code> позволяет указать количество записей из списка посещённых каталогов, которые будут отображаться в выпадающем меню (команда <a href="cmds.html#cm_DirHistory">cm_DirHistory</a>).
-              При использовании древовидного меню значение атрибута будет проигнорировано.<br>
-              По умолчанию 30.
+              Атрибут <code>Count</code> позволяет указать количество записей из списка посещённых каталогов, которые будут отображаться в выпадающем меню (команда <a href="cmds.html#cm_DirHistory">cm_DirHistory</a>). По умолчанию 30.<br>
+              При использовании древовидного меню значение атрибута будет проигнорировано.
             </td>
           </tr>
 
@@ -485,7 +516,7 @@
             <td class="cmdcell"><div class="firstcolumnaleft">Атрибут <i>Save</i><br><small>в &lt;SyncDirs&gt;&lt;FileMask&gt;</small></div></td>
             <td class="hintcell">
               Синхронизация каталогов: по умолчанию Double Commander сохраняет последнюю использованную маску файлов как маску для следующего запуска инструмента синхронизации (если это не шаблон поиска),
-              чтобы запретить такое поведение, мы можем заменить <code>True</code> на <code>False</code> (<code>&lt;FileMask Save="False"&gt;</code>) и указать своё значение <code>&lt;FileMask&gt;</code> (по умолчанию "*", т.е. все файлы).
+              чтобы запретить такое поведение, мы можем заменить <code>True</code> на <code>False</code> (<code>&lt;FileMask Save="False"&gt;</code>) и указать в значении <code>&lt;FileMask&gt;</code> предпочитаемую маску файлов или "*" (т.е. все файлы).
             </td>
           </tr>
 

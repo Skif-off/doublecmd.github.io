@@ -524,15 +524,14 @@
           <tr><td class="varcell"><div class="firstcolumnaleft">nn</div></td><td class="hintcell">минуты (с лидирующим нулём)</td><td class="hintcell">06</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">s</div></td><td class="hintcell">секунды</td><td class="hintcell">2</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">ss</div></td><td class="hintcell">секунды (с лидирующим нулём)</td><td class="hintcell">02</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">z</div></td><td class="hintcell">миллисекунды *</td><td class="hintcell">1</td></tr>
-          <tr><td class="varcell"><div class="firstcolumnaleft">zzz</div></td><td class="hintcell">миллисекунды (с лидирующим нулём) *</td><td class="hintcell">001</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">z</div></td><td class="hintcell">миллисекунды</td><td class="hintcell">1</td></tr>
+          <tr><td class="varcell"><div class="firstcolumnaleft">zzz</div></td><td class="hintcell">миллисекунды (с лидирующим нулём)</td><td class="hintcell">001</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">t</div></td><td class="hintcell">краткое время</td><td class="hintcell">9:06</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">tt</div></td><td class="hintcell">полное время</td><td class="hintcell">9:06:02</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">am/pm</div></td><td class="hintcell">12-часовой формат времени с am или pm соответственно (также <tt>AM/PM</tt>, <tt>a/m</tt> или <tt>A/M</tt>); например, <code>t&nbsp;AM/PM</code></td><td class="hintcell">9:06 AM</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">/</div></td><td class="hintcell">вставить разделитель даты</td><td class="hintcell">.</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">:</div></td><td class="hintcell">вставить разделитель времени</td><td class="hintcell">:</td></tr>
           <tr><td class="varcell"><div class="firstcolumnaleft">"текст"</div></td><td class="hintcell">текст как есть; например, <code>yyyy "от РХ"</code></td><td class="hintcell">2021 от РХ</td></tr>
-          <tr><td class="hintcell" colspan="3">* Только Windows</td></tr>
         </table>
 
         <p>Следующие параметры задают формат размера файла:</p>
@@ -637,7 +636,7 @@
           <li><p><tt>GETFILEOWNER</tt>&nbsp;&ndash; владелец файла.</p></li>
           <li><p><tt>GETFILELINKTO</tt>&nbsp;&ndash; путь и файл, на который указывает символьная ссылка.</p></li>
           <li><p><tt>GETFILETYPE</tt>&nbsp;&ndash; тип файла (как в Проводнике Windows или MIME-тип).</p></li>
-          <li><p><tt>GETFILECOMMENT</tt>&nbsp;&ndash; описание (комментарий) файла или каталога из файла <tt>descript.ion</tt> (подробнее смотрите <a href="help.html#cm_EditComment">здесь</a>).</p></li>
+          <li><p><tt>GETFILECOMMENT</tt>&nbsp;&ndash; описание (комментарий) файла или каталога из файла <tt>descript.ion</tt> (подробнее смотрите <a href="help.html#cm_EditComment">здесь</a>). Это поле также можно использовать внутри архивов (если формат архивов поддерживает сохранение описания файлов и соответствующий <a href="multiarc.html#archivers">внешний архиватор</a> настроен на их получение).</p></li>
           <li><p><tt>GETFILECOMPRESSEDSIZE</tt>&nbsp;&ndash; размер сжатого файла (реальный размер, если используется сжатие NTFS).</p></li>
         </ul>
         <p><span class="italic">Переместить</span>&nbsp;&ndash; позволяет перемещать строки, для появления кнопок нужно дважды щёлкнуть мышью в поле. Чем выше строка, тем левее будет отображаться эта колонка.</p>
@@ -869,8 +868,8 @@
           <li><p><span class="italic">Историю командной строки</span>&nbsp;&ndash; Команды, использованные в <a href="help.html#iface_path">командной строке</a>.</p></li>
           <li><p><span class="italic">Историю масок файлов</span>&nbsp;&ndash; Double Commander сохраняет общую историю использованных масок файлов для нескольких инструментов: поиск файлов, фильтры в <a href="syncdirs.html">синхронизации каталогов</a> и <a href="help.html#cm_ExtractFiles">распаковке архивов</a>, команды <a href="help.html#cm_MarkPlus">выделения группы файлов и снятия выделения</a>.</p></li>
         </ul>
-        <p>Максимальное количество записей в истории ограничено 50.</p>
-        <p>Примечание об истории посещённых каталогов: В течении сессии Double Commander хранит в памяти до 255 посещённых каталогов (тем не менее при закрытии программы будут сохранены только последние 50 записей). Вы можете изменить количество записей истории во всплывающем меню при вызове команды <a href="cmds.html#cm_DirHistory">cm_DirHistory</a> (по умолчанию 30, смотрите атрибут <code>Count</code> в теге <a href="configxml.html">&lt;DirHistory&gt;</a>), однако при использовании <a href="#ConfigTreeMenu">древовидного меню</a> будет показана вся доступная история.</p>
+        <p>Максимальное количество записей в истории по умолчанию ограничено 50 (смотрите атрибут <code>MaxStringItems</code> в теге <a href="configxml.html">&lt;History&gt;</a>).</p>
+        <p>Примечание об истории посещённых каталогов: В течении сессии Double Commander хранит в памяти до 255 посещённых каталогов, тем не менее при закрытии программы количество сохраняемых записей будет ограничено значением <code>MaxStringItems</code>. Вы можете изменить количество записей истории во всплывающем меню при вызове команды <a href="cmds.html#cm_DirHistory">cm_DirHistory</a> (по умолчанию 30, смотрите атрибут <code>Count</code> в теге <a href="configxml.html">&lt;DirHistory&gt;</a>), однако при использовании <a href="#ConfigTreeMenu">древовидного меню</a> будет показана вся доступная история.</p>
         <p>Примечание: Шаблоны поиска не относятся к истории и сохраняются отдельно (в файле конфигурации <tt>doublecmd.xml</tt>). Для управления списком шаблонов вы можете использовать инструмент <a href="findfiles.html#templates">поиска файлов</a>.</p>
         <p>Вы можете выбрать, как будет выглядеть список разделов настроек:</p>
         <ul>
@@ -1073,7 +1072,7 @@
         </ul>
         <p>Действия "View" с макросом <tt>{!DC-VIEWER}</tt> будут учитываться при <a href="viewer.html#quick">быстром просмотре</a>, другие макросы и команды будут проигнорированы.</p>
         <p><tt>{!TERMSTAYOPEN}</tt> и <tt>{!TERMANDCLOSE}</tt> были добавлены для унификации и возможности использовать переменные <a href="variables.html#executeterm">%t0 и %t1</a>, <tt>{!SHELL}</tt> был сохранён для обеспечения обратной совместимости.</p>
-        <p>В качестве команды можно использовать <a href="cmds.html">внутренние команды</a> Double Commander. Параметры внутренних команд задаются по одному на строку, поэтому здесь вы можете указать только один. Также с помощью внутренней команды <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> можно запускать <a href="lua.html">скрипты Lua</a>, в этом случае вы можете получить имена выделенных файлов с помощью <a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> или <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>.</p>
+        <p>В качестве команды можно использовать <a href="cmds.html">внутренние команды</a> Double Commander. Параметры внутренних команд задаются по одному на строку, поэтому здесь вы можете указать только один. Также с помощью внутренней команды <a href="cmds.html#cm_ExecuteScript">cm_ExecuteScript</a> можно запускать <a href="lua.html">скрипты Lua</a>, в этом случае вы можете получить имена выделенных файлов с помощью внутренних команд (<a href="cmds.html#cm_CopyFullNamesToClip">cm_CopyFullNamesToClip</a> или <a href="cmds.html#cm_SaveSelectionToFile">cm_SaveSelectionToFile</a>) или функции <a href="lua.html#dc_expandvar">DC.ExpandVar</a><span class="versionref"><sup>(Альфа-версия)</sup></span>.</p>
         <p><span class="italic">Параметры</span>&nbsp;&ndash; параметры команды, включая переменные:</p>
         <ul>
           <li><p>все доступные в параметрах DC <a href="variables.html">переменные</a>;</p></li>
