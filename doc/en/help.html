@@ -130,6 +130,7 @@
 
         <p><span class="bold">Create Directory</span> (internal command <tt>cm_MakeDir</tt>)&nbsp;&ndash; creates a new subdirectory in the current directory. The file name (without extension) or directory name under the cursor will be offered, this is useful for creating multiple directories with similar names. You can also create several subdirectories in one operation, just separate the subdrectories with the directory separator (in Unix/Linux system it will be "/" and in Windows it will be "\").</p>
         <p class="figure"><img class="largeimage" title="Create Directory" alt="Create Directory" src="images/imgDC/pic55.png" width="352" height="144"></p>
+        <p>The button with an arrow opens the history of the entered names. The button to the right of the input field allows to enable or disable auto-completion from the directory creation history.<span class="versionref"><sup>(Alpha version)</sup></span></p>
         <p>If <span class="italic">Extended syntax</span> is enabled, the <code>&lt;[]</code> template can be used to insert the current date/time: inside square brackets you can use <a href="configuration.html#dt_format">date and time formatting characters</a> and any characters allowed for filenames.</p>
 
         <p><span class="bold">Create Shortcut</span> (Windows only)&nbsp;&ndash; Double Commander creates a shortcut (Microsoft Windows .lnk file) to the file under the cursor and places it in the folder opened in the opposite panel.</p>
@@ -182,7 +183,7 @@
         <p>The action of the <span class="italic">Configure</span> button depends on the selected archiver:</p>
         <ul>
           <li><p>packer plugins (WCX): opens the plugin's own settings window (if selected plugin supports this feature);</p></li>
-          <li><p>external archivers: opens a window with an input field for additional archiver parameters (when using the <a href="multiarc.html#variables">%S</a> variable).</p></li>
+          <li><p>external archivers: opens a window with an input field for additional archiver parameters (when using the <a href="multiarc.html#variables">%S</a> variable). Double Commander automatically saves the entered parameter string, the button with an arrow will open the list of previously saved ones (see description of <a href="multiarc.html#aconfig">AskHistory</a>).<span class="versionref"><sup>(Alpha version)</sup></span></p></li>
         </ul>
         <p>Also we can unpack files via <a name="cm_ExtractFiles"><span class="bold">Extract Files</span></a> (internal command <tt>cm_ExtractFiles</tt>). The same dialog is called when you copy files from the archive.</p>
         <p class="figure"><img class="largeimage" title="Unpack" alt="Unpack" src="images/imgDC/pic23.png" width="480" height="246"></p>
@@ -213,10 +214,12 @@
 
         <p>Item <a name="cm_CheckSumCalc"><span class="bold">Calculate check sum...</span></a> (internal command <tt>cm_CheckSumCalc</tt>) is used to calculate the <a href="https://en.wikipedia.org/wiki/Checksum" target="_blank">checksum</a> to check files integrity. The following checksums are available:
           BLAKE2 (BLAKE2s, BLAKE2sp, BLAKE2b, BLAKE2bp), BLAKE3, CRC32, HAVAL, MD4, MD5, RIPEMD128, RIPEMD160, SFV, SHA,
-          SHA2 (digest sizes 224, 256, 384 or 512 bits), SHA3 (digest sizes 224, 256, 384 or 512 bits), Tiger/192.</p>
+          SHA2 (digest sizes 224, 256, 384 or 512 bits), SHA3 (digest sizes 224, 256, 384 or 512 bits), Tiger/192,
+          XXH128<span class="versionref"><sup>(Alpha version)</sup></span> (XXH3 with 128 bit digest size).</p>
         <p class="figure"><img class="largeimage" title="Calculate checksum" alt="Calculate checksum" src="images/imgDC/pic26.png" width="402" height="432"></p>
         <p><span class="italic">Save checksum file(s) to:</span>&nbsp;&ndash; line specifies name and path to the calculated checksum.</p>
         <p><span class="italic">Create separate checksum files for each file</span>&nbsp;&ndash; if checksum calculates for multiple files, this option allows to create separate checksum files for each target file.</p>
+        <p><span class="italic">Create separate checksum file for each directory</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; Double Commander will scan the selected folders or the folder under the cursor and create separate checksum files in each subdirectory. The program will not take into account the <a href="configuration.html#ConfigIgnore">ignore list</a> and the status of the <a href="configuration.html#ConfigViewEx">Show system and hidden files</a> option.</p>
         <p><span class="italic">Open checksum file after job is completed</span>&nbsp;&ndash; after the operation is completed, the checksum file will be opened in the <a href="viewer.html">file viewer</a>.</p>
         <p><span class="italic">File format</span>&nbsp;&ndash; allows to specify the line ending type and directory separator instead of the commonly used values in Windows (CRLF and "\") and Unix-like systems (LF and "/").</p>
 
@@ -410,7 +413,7 @@
       <div>
         <h2><a name="iface_drive_pane">2.3. Drives button bar</a></h2>
         <p class="figure"><img title="Drives button bar" alt="Drives button bar" src="images/imgDC/pic3.png" width="472" height="25"></p>
-        <p>The Drives button bar helps you to change the drive quickly with one mouse click. Middle mouse (mouse wheel) click will open the disk in a new tab in the active panel.</p>
+        <p>The Drives button bar helps you to change the drive quickly with one mouse click. Middle mouse (mouse wheel) click will open the disk in a new tab in the active panel. There are two ways to open a drive, see the description of the <a href="configuration.html#ConfigMisc">Always go to the root of a drive when changing drives</a> parameter.</p>
         <p>Right click shows the context menu that contains operations such as mount/unmount, format, etc. (depends on the OS and drive type).</p>
         <p>The last button is <a href="#cm_OpenVirtualFileSystemList">Open VFS list</a>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -423,6 +426,7 @@
         <p>Internal commands are <tt><a name="cm_LeftOpenDrives">cm_LeftOpenDrives</a></tt> for left panel and <tt><a name="cm_RightOpenDrives">cm_RightOpenDrives</a></tt>&nbsp;&ndash; for right panel. Default shortcuts: <kbd>Alt+F1</kbd> and <kbd>Alt+F2</kbd>, but they won't work in most Linux Desktop Environments (just open the <a href="configuration.html#ConfigHotKeys">Keys&nbsp;&gt; Hot keys</a> settings section and replace them).</p>
         <p class="figure"><img class="largeimage" title="Drives list" alt="Drives list" src="images/imgDC/pic5.png" width="292" height="152"></p>
         <p>Internal command <tt>cm_SrcOpenDrives</tt> will show this menu for active panel.</p>
+        <p>There are two ways to open a drive, see the description of the <a href="configuration.html#ConfigMisc">Always go to the root of a drive when changing drives</a> parameter.</p>
         <p>Additional navigation buttons:</p>
         <p><tt><a name="btn_dirlist">"*"</a></tt>&nbsp;&ndash; shows the bookmarks hotlist, see the dedicated <a href="directoryhotlist.html">Directory Hotlist</a> help page for details;</p>
         <p><tt>"\"</tt> or <tt>"/"</tt>&nbsp;&ndash; go to the root of the current drive (Windows) or to the file system root (Linux and other Unix-like systems). Exceptions:</p>
@@ -567,6 +571,7 @@
         <p>Double Commander allows to rename files directly in the file panel. There are several ways to call this operation: the internal command <tt>cm_RenameOnly</tt> (<kbd>F2</kbd> or <kbd>Shift+F6</kbd> by default), the <a href="configuration.html#ConfigViewEx">left mouse click</a> or the corresponding item in the right mouse button menu.</p>
         <p>By default, Double Commander will select the file name completely, but you can <a href="configuration.html#ConfigOperations">enable</a> file name selecting without an extension. Also, repeated hotkey presses allow to select the file name in parts, the following characters are used as a separator: space, hyphen underscore and period. Folder names are always selected completely.</p>
         <p>To confirm the change in the name, use the <kbd>Enter</kbd> key or the rename confirmation button to the right of the edit field. To cancel unconfirmed changes (to exit editing mode), use the <kbd>Esc</kbd> key or the mouse click outside the edit field. You can use a mouse click outside the edit field to confirm the renaming (as in Windows Explorer), see the description of <a href="configxml.html">&lt;RenameConfirmMouse&gt;</a>.</p>
+        <p>Using the up and down arrows, you can rename several files sequentially: the new file name will be automatically saved when you go to edit the name of the next or previous file. To exit this mode, use the methods described above to confirm or cancel the operation.<span class="versionref"><sup>(Alpha version)</sup></span></p>
         <p>For group renaming files, the <a href="multirename.html">appropriate tool</a> is available.</p>
         <br>
 
