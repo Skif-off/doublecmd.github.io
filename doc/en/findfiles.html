@@ -113,7 +113,7 @@
         <ul>
           <li><p>compare file names;</p></li>
           <li><p>compare file sizes;</p></li>
-          <li><p>compare file hashes: BLAKE2b (x64) or BLAKE2s checksum will be used;</p></li>
+          <li><p>compare file hashes: BLAKE3 (x86-64), BLAKE2b (other 64-bit processors) or BLAKE2s checksum will be used;</p></li>
           <li><p>compare file content (byte-by-byte comparison).</p></li>
         </ul>
         <p>In the result will be shown file names, group number of matching files and file locations. Also after feed to listbox we can use special selection mode, where we can select only duplicates:
@@ -293,6 +293,7 @@
             <td class="hintcell">string does not match <a href="regexp.html">regular expression</a></td>
           </tr>
         </table>
+        <p>Depending on the type of data returned by the plugin field, a value input assistant will be available: calculator (number) or calendar (date and/or time).</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 

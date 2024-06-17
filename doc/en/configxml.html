@@ -157,6 +157,12 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="AutoCopyBackward">&lt;AutoCopyBackward&gt;</a></div></td>
+            <td class="hintcell">Sets the behavior for files opened in the editor (built-in or external) from an archive or a WFX plugin.<br>
+              Files from the virtual file system are automatically copied to the system directory for the temporary files before opening. If a file has been changed, Double Commander will prompt to copy it back (<code>False</code>) or copy it back automatically (<code>True</code>). <code>True</code> by default.</td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft"><a name="AutoExtractOpenMask">&lt;AutoExtractOpenMask&gt;</a></div></td>
             <td class="hintcell">
                Suppose we've "entered" into a compressed file and browsing its content in the active panel. The files with the specified extension of this setting will be automatically unpacked from the archive when we press <kbd>Enter</kbd> or double-click on them instead of showing the properties window.<br>
@@ -379,6 +385,11 @@
           </tr>
 
           <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="MaxStringItems">Attribute <i>MaxStringItems</i><br><small>from &lt;History&gt;</small></a></div></td>
+            <td class="hintcell">The <code>MaxStringItems</code> attribute allows to specify the maximum number of entries in the <a href="configuration.html#ConfigDC">saved history</a>. Default value is 50.</td>
+          </tr>
+
+          <tr>
             <td class="cmdcell"><div class="firstcolumnaleft"><a name="Count">Attribute <i>Count</i><br><small>from &lt;History&gt;&lt;DirHistory&gt;</small></a></div></td>
             <td class="hintcell">
               The <code>Count</code> attribute allows to specify the number of entries from the list of visited directories that will be displayed in the popup menu (the <a href="cmds.html#cm_DirHistory">cm_DirHistory</a> command). Default value is 30.<br>
@@ -476,6 +487,11 @@
 
           <tr>
             <td colspan="2" class="subsection"><div class="subsection">from &lt;Layout&gt;:</div></td>
+          </tr>
+
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="DriveBarFreeSpace">&lt;DriveBarFreeSpace&gt;</a></div></td>
+            <td class="hintcell">Allows us to change the position of the free space label when the drives list button is disabled: by default (<code>False</code>), when we disable the drives list button, its panel and free space label remain in the same place; otherwise (<code>True</code>), the panel will be hidden, and the free space label will be moved up to the drive buttons panel, adding space for the file list.</td>
           </tr>
 
           <tr>
@@ -637,26 +653,29 @@
             <td class="indexcell">
               <p>
                 <a href="#Count">Attribute <i>Count</i> (&lt;DirHistory&gt;)</a><br>
+                <a href="#MaxStringItems">Attribute <i>MaxStringItems</i> (&lt;History&gt;)</a><br>
                 <a href="#SaveAsymmetric">Attribute <i>Save</i> (&lt;Asymmetric&gt;)</a><br>
                 <a href="#SaveFileMask">Attribute <i>Save</i> (&lt;FileMask&gt;)</a><br><br>
                 <a href="#ActiveRight">ActiveRight</a><br>
                 <a href="#AutoCopy">AutoCopy</a><br>
+                <a href="#AutoCopyBackward">AutoCopyBackward</a><br>
                 <a href="#AutoExtractOpenMask">AutoExtractOpenMask</a><br>
                 <a href="#AutoSaveWidth">AutoSaveWidth</a><br>
                 <a href="#ConfirmQuit">ConfirmQuit</a><br>
                 <a href="#CopyAttributes">CopyAttributes</a><br>
                 <a href="#CopyTime">CopyTime</a><br>
                 <a href="#CopyXattributes">CopyXattributes</a><br>
-                <a href="#CustomIcons">CustomIcons</a><br>
-                <a href="#DateTimeFormat">DateTimeFormat</a>
+                <a href="#CustomIcons">CustomIcons</a>
               </p>
             </td>
             <td class="indexcell">
               <p>
+                <a href="#DateTimeFormat">DateTimeFormat</a><br>
                 <a href="#DecimalSeparator">DecimalSeparator</a><br>
                 <a href="#DefaultDropEffect">DefaultDropEffect</a><br>
                 <a href="#DiskAlpha">DiskAlpha</a><br>
                 <a href="#DoubleClickEditPath">DoubleClickEditPath</a><br>
+                <a href="#DriveBarFreeSpace">DriveBarFreeSpace</a><br>
                 <a href="#ExtraLineSpanF">ExtraLineSpan (&lt;FilesViews&gt;)</a><br>
                 <a href="#ExtraLineSpanV">ExtraLineSpan (&lt;Viewer&gt;)</a><br>
                 <a href="#FindWordAtCursor">FindWordAtCursor</a><br>
@@ -665,12 +684,12 @@
                 <a href="#ImageExifRotate">ImageExifRotate</a><br>
                 <a href="#JpegQuality">JpegQuality</a><br>
                 <a href="#LeftMargin">LeftMargin</a><br>
-                <a href="#LongInStatus">LongInStatus</a><br>
-                <a href="#LongNameAlert">LongNameAlert</a>
+                <a href="#LongInStatus">LongInStatus</a>
               </p>
             </td>
             <td class="indexcell">
               <p>
+                <a href="#LongNameAlert">LongNameAlert</a><br>
                 <a href="#MaxCodeSize">MaxCodeSize</a><br>
                 <a href="#MaxTextWidth">MaxTextWidth</a><br>
                 <a href="#Mode">Mode</a><br>

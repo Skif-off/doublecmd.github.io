@@ -1108,6 +1108,18 @@
               <div class="cmdname"><a name="cm_CopyNetNamesToClip">cm_CopyNetNamesToClip</a></div></td>
             <td class="cmdhintcell">Только Windows: копировать в буфер имена с UNC-путём.</td>
           </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_MapNetworkDrive" alt="cm_MapNetworkDrive" src="../../pixmaps/dctheme/32x32/actions/cm_mapnetworkdrive.png">
+              <div class="cmdname"><a name="cm_MapNetworkDrive">cm_MapNetworkDrive</a></div>
+              <div class="shrtctkey">Ctrl+K</div></td>
+            <td class="cmdhintcell">Команда позволяет подключить сетевые устройства, поведение зависит от операционной системы:
+              <ul>
+                <li>Windows: вызывает системный диалог Windows для подключения сетевых дисков.</li>
+                <li>macOS: аналогично команде "Подключение к серверу" в Finder.</li>
+                <li>Linux и другие Unix-подобные системы: Double Commander предложит указать путь: вы можете использовать пути GVfs (подробнее смотрите в <a href="faq.html#gvfs">FAQ</a>) или указать локальный каталог. Таким образом, по результату работы эта команда схожа с командой <a href="#cm_EditPath">cm_EditPath</a>.</li>
+              </ul>
+            </td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
@@ -1210,6 +1222,16 @@
                 </tr>
               </table>
             </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_MainFontZoomOut" alt="cm_MainFontZoomOut" src="../../pixmaps/dctheme/32x32/actions/cm_mainfontzoomout.png">
+              <div class="cmdname"><a name="cm_MainFontZoomOut">cm_MainFontZoomOut</a></div></td>
+            <td class="cmdhintcell">Уменьшить размер основного шрифта (для файловых панелей).</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_MainFontZoomIn" alt="cm_MainFontZoomIn" src="../../pixmaps/dctheme/32x32/actions/cm_mainfontzoomin.png">
+              <div class="cmdname"><a name="cm_MainFontZoomIn">cm_MainFontZoomIn</a></div></td>
+            <td class="cmdhintcell">Увеличить размер основного шрифта (для файловых панелей).</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
@@ -2588,7 +2610,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_RenameTab" alt="cm_RenameTab" src="../../pixmaps/dctheme/32x32/actions/cm_renametab.png">
               <div class="cmdname"><a name="cm_RenameTab">cm_RenameTab</a></div></td>
-            <td class="cmdhintcell">Переименовать текущую вкладку активной панели.</td>
+            <td class="cmdhintcell">Переименовать текущую вкладку активной панели.<br>Также вы можете указать новое имя вкладки как параметр.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CloseTab" alt="cm_CloseTab" src="../../pixmaps/dctheme/32x32/actions/cm_closetab.png">
