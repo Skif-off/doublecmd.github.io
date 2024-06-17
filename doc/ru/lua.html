@@ -41,26 +41,27 @@
                   <dt>3.2.3. <a href="#examplefind">Пример использования FindFirst, FindNext и FindClose</a></dt>
                 </dl>
               </dd>
-              <dt>3.3. <a href="#libraryclip">Библиотека Clipboard</a></dt>
+              <dt>3.3. <a href="#librarystash">Библиотека Stash</a><span class="versionref"><sup>(Альфа-версия)</sup></span></dt>
+              <dt>3.4. <a href="#libraryclip">Библиотека Clipboard</a></dt>
               <dd>
                 <dl>
-                  <dt>3.3.1. <a href="#exampleclip">Пример работы с буфером обмена</a></dt>
+                  <dt>3.4.1. <a href="#exampleclip">Пример работы с буфером обмена</a></dt>
                 </dl>
               </dd>
-              <dt>3.4. <a href="#librarydialogs">Библиотека Dialogs</a></dt>
+              <dt>3.5. <a href="#librarydialogs">Библиотека Dialogs</a></dt>
               <dd>
                 <dl>
-                  <dt>3.4.1. <a href="#dlgbuts">Кнопки Dialogs.MessageBox</a></dt>
-                  <dt>3.4.2. <a href="#dlgstyle">Стиль окна Dialogs.MessageBox</a></dt>
-                  <dt>3.4.3. <a href="#dlgdefbut">Кнопка по умолчанию в Dialogs.MessageBox</a></dt>
-                  <dt>3.4.4. <a href="#msgreturn">Возвращаемое значение Dialogs.MessageBox</a></dt>
-                  <dt>3.4.5. <a href="#mesgboxsample">Пример использования Dialogs.MessageBox</a></dt>
-                  <dt>3.4.6. <a href="#querysample">Пример использования Dialogs.InputQuery</a></dt>
+                  <dt>3.5.1. <a href="#dlgbuts">Кнопки Dialogs.MessageBox</a></dt>
+                  <dt>3.5.2. <a href="#dlgstyle">Стиль окна Dialogs.MessageBox</a></dt>
+                  <dt>3.5.3. <a href="#dlgdefbut">Кнопка по умолчанию в Dialogs.MessageBox</a></dt>
+                  <dt>3.5.4. <a href="#msgreturn">Возвращаемое значение Dialogs.MessageBox</a></dt>
+                  <dt>3.5.5. <a href="#mesgboxsample">Пример использования Dialogs.MessageBox</a></dt>
+                  <dt>3.5.6. <a href="#querysample">Пример использования Dialogs.InputQuery</a></dt>
                 </dl>
               </dd>
-              <dt>3.5. <a href="#libraryutf8">Библиотека UTF-8</a></dt>
-              <dt>3.6. <a href="#librarychar">Библиотека Char</a></dt>
-              <dt>3.7. <a href="#libraryos">Библиотека OS</a></dt>
+              <dt>3.6. <a href="#libraryutf8">Библиотека UTF-8</a></dt>
+              <dt>3.7. <a href="#librarychar">Библиотека Char</a></dt>
+              <dt>3.8. <a href="#libraryos">Библиотека OS</a></dt>
             </dl>
           </dd>
           <dt>4. <a href="#index">Индекс</a></dt>
@@ -684,7 +685,59 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
       </div>
 
       <div>
-        <h2><a name="libraryclip">3.3. Библиотека Clipboard</a></h2>
+        <h2><a name="librarystash">3.3. Библиотека Stash</a><span class="versionref"><sup>(Альфа-версия)</sup></span></h2>
+        <p>Double Commander предоставляет скриптам Lua библиотеку функций для работы с <a href="help.html#cm_OpenVirtualFileSystemList">хранилищем</a>.</p>
+        <table>
+          <tr class="rowcategorytitle"><th colspan="2">Библиотека Stash</th></tr>
+          <tr class="rowsubtitle"><th class="categorynamecolumn">Функция</th><th class="categorydesccolumn">Описание</th></tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="stash_setastable">Stash.SetAsTable</a></div></td>
+            <td class="hintcell">
+              <p class="definition">Stash.SetAsTable(aFiles)</p>
+              <p>Добавить файлы из таблицы Lua в хранилище, заменив существующие файлы (если есть). Каждый элемент таблицы должен быть строкой с именем файла.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="stash_setastext">Stash.SetAsText</a></div></td>
+            <td class="hintcell">
+              <p class="definition">Stash.SetAsText(sFiles)</p>
+              <p>Добавить файлы из строки <var>sFiles</var> в хранилище, заменив существующие файлы (если есть). Имена файлов должны быть разделены символом переноса строки (<code>LF</code>/<code>\n</code>/U+000A).</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="stash_addastable">Stash.AddAsTable</a></div></td>
+            <td class="hintcell">
+              <p class="definition">Stash.AddAsTable(aFiles)</p>
+              <p>Добавить файлы из таблицы Lua к файлам в хранилище. Каждый элемент таблицы должен быть строкой с именем файла.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="stash_addastext">Stash.AddAsText</a></div></td>
+            <td class="hintcell">
+              <p class="definition">Stash.AddAsText(sFiles)</p>
+              <p>Добавить файлы из строки <var>sFiles</var> к файлам в хранилище. Имена файлов должны быть разделены символом переноса строки (<code>LF</code>/<code>\n</code>/U+000A).</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="stash_getastable">Stash.GetAsTable</a></div></td>
+            <td class="hintcell">
+              <p class="definition">aFiles = Stash.GetAsTable()</p>
+              <p>Получить список файлов в хранилище в виде таблицы Lua. Каждый элемент таблицы будет строкой с именем файла.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><div class="firstcolumnaleft"><a name="stash_getastext">Stash.GetAsText</a></div></td>
+            <td class="hintcell">
+              <p class="definition">sFiles = Stash.GetAsText()</p>
+              <p>Получить список файлов в хранилище в виде строки. Имена файлов будут разделены символом переноса строки (<code>LF</code>/<code>\n</code>/U+000A).</p>
+            </td>
+          </tr>
+        </table>
+        <p class="navback"><a href="#topofpage">(наверх)</a></p>
+      </div>
+
+      <div>
+        <h2><a name="libraryclip">3.4. Библиотека Clipboard</a></h2>
         <p>Double Commander предоставляет скриптам Lua библиотеку функций для работы с буфером обмена.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Библиотека Clipboard</th></tr>
@@ -730,7 +783,7 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
       </div>
 
       <div>
-        <h2><a name="exampleclip">3.3.1. Пример работы с буфером обмена</a></h2>
+        <h2><a name="exampleclip">3.4.1. Пример работы с буфером обмена</a></h2>
         <p>В следующем примере используются три функции, связанные с буфером обмена: <code>Clear</code>, <code>GetAsText</code> и <code>SetAsText</code>.</p>
         <p>Это относительно большой скрипт, но было бы неплохо собрать вместе несколько функций, с которыми мы познакомились ранее.</p>
         <p>Предполагается, что в нашей активной панели открыт каталог с большим количеством текстовых файлов.</p>
@@ -803,7 +856,7 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
       </div>
 
       <div>
-        <h2><a name="librarydialogs">3.4. Библиотека Dialogs</a></h2>
+        <h2><a name="librarydialogs">3.5. Библиотека Dialogs</a></h2>
         <p>Эта библиотека позволяет нашим скриптам взаимодействовать с пользователем, показывая сообщения, выдавая запросы и т.д.</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Библиотека Dialogs</th></tr>
@@ -856,7 +909,7 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
       </div>
 
       <div>
-        <h2><a name="dlgbuts">3.4.1. Кнопки Dialogs.MessageBox</a></h2>
+        <h2><a name="dlgbuts">3.5.1. Кнопки Dialogs.MessageBox</a></h2>
         <p>Кнопки, отображаемые в окне <code>Dialogs.MessageBox</code>, задаются одним из следующих значений:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Константы для кнопок в Dialogs.MessageBox</th></tr>
@@ -909,7 +962,7 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
       </div>
 
       <div>
-        <h2><a name="dlgstyle">3.4.2. Стиль окна Dialogs.MessageBox</a></h2>
+        <h2><a name="dlgstyle">3.5.2. Стиль окна Dialogs.MessageBox</a></h2>
         <p>Стиль окна <code>Dialogs.MessageBox</code> задаётся одним из следующих значений:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Константы, задающие значок и стиль окна Dialogs.MessageBox</th></tr>
@@ -935,7 +988,7 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
       </div>
 
       <div>
-        <h2><a name="dlgdefbut">3.4.3. Кнопка по умолчанию в Dialogs.MessageBox</a></h2>
+        <h2><a name="dlgdefbut">3.5.3. Кнопка по умолчанию в Dialogs.MessageBox</a></h2>
         <p>Кнопка по умолчанию (активная) в <code>Dialogs.MessageBox</code> задаётся одним из следующих значений:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Константы, задающие кнопку по умолчанию в Dialogs.MessageBox</th></tr>
@@ -957,7 +1010,7 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
       </div>
 
       <div>
-        <h2><a name="msgreturn">3.4.4. Возвращаемое значение Dialogs.MessageBox</a></h2>
+        <h2><a name="msgreturn">3.5.4. Возвращаемое значение Dialogs.MessageBox</a></h2>
         <p>Число, возвращаемое функцией <code>Dialogs.MessageBox</code>, указывает на кнопку, которую нажал пользователь, и может быть одним из следующих:</p>
         <table>
           <tr class="rowcategorytitle"><th colspan="2">Возвращаемое значение Dialogs.MessageBox</th></tr>
@@ -1000,7 +1053,7 @@ i <span class="luasbl">=</span> <span class="luanum">10</span>
       </div>
 
       <div>
-        <h2><a name="mesgboxsample">3.4.5. Пример использования Dialogs.MessageBox</a></h2>
+        <h2><a name="mesgboxsample">3.5.5. Пример использования Dialogs.MessageBox</a></h2>
         <p>Маленький скрипт, использующий <code>Dialogs.MessageBox</code>:</p>
         <pre>
 <span class="luacmt">-- Отображаемые кнопки</span>
@@ -1043,7 +1096,7 @@ iButton <span class="luasbl">=</span> <span class="mark">Dialogs.MessageBox</spa
       </div>
 
       <div>
-        <h2><a name="querysample">3.4.6. Пример использования Dialogs.InputQuery</a></h2>
+        <h2><a name="querysample">3.5.6. Пример использования Dialogs.InputQuery</a></h2>
         <p>Маленький скрипт, использующий <code>Dialogs.InputQuery</code>:</p>
         <pre>
 bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span class="mark">Dialogs.InputQuery</span><span class="luasbl">(</span><span class="luastr">"Идентификация"</span><span class="luasbl">,</span> <span class="luastr">"Введите ваше имя:"</span><span class="luasbl">,</span> <span class="luakyw">false</span><span class="luasbl">,</span> <span class="luastr">"Иван"</span><span class="luasbl">)</span>
@@ -1056,7 +1109,7 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
       </div>
 
       <div>
-        <h2><a name="libraryutf8">3.5. Библиотека UTF-8</a></h2>
+        <h2><a name="libraryutf8">3.6. Библиотека UTF-8</a></h2>
         <p>Эта библиотека обеспечивает базовую поддержку кодировки UTF-8.</p>
         <p>Все функции представлены в таблице <code>LazUtf8</code>.</p>
         <table>
@@ -1158,7 +1211,7 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
       </div>
 
       <div>
-        <h2><a name="librarychar">3.6. Библиотека Char</a></h2>
+        <h2><a name="librarychar">3.7. Библиотека Char</a></h2>
         <p>Эта библиотека содержит функции для проверки принадлежности символа к определённой категории юникода, а также для получения категории символа.</p>
         <p>Список доступных функций:</p>
         <table>
@@ -1252,7 +1305,7 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
       </div>
 
       <div>
-        <h2><a name="libraryos">3.7. Библиотека OS</a></h2>
+        <h2><a name="libraryos">3.8. Библиотека OS</a></h2>
         <p>Эта библиотека содержит функции, связанные с операционной системой, в которой запущен Double Commander.</p>
         <p>Список доступных функций:</p>
         <table>
@@ -1375,9 +1428,18 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
                 <a href="#sysutils_removedirectory">SysUtils.RemoveDirectory</a><br>
                 <a href="#sysutils_sleep">SysUtils.Sleep</a>
               </p>
-              <br>
             </td>
             <td class="indexcell">
+              <p><span class="bold"><a href="#librarystash">Библиотека Stash</a></span></p>
+              <p>
+                <a href="#stash_addastable">Stash.AddAsTable</a><br>
+                <a href="#stash_addastext">Stash.AddAsText</a><br>
+                <a href="#stash_getastable">Stash.GetAsTable</a><br>
+                <a href="#stash_getastext">Stash.GetAsText</a><br>
+                <a href="#stash_setastable">Stash.SetAsTable</a><br>
+                <a href="#stash_setastext">Stash.SetAsText</a><br>
+              </p>
+              <br>
               <p><span class="bold"><a href="#libraryclip">Библиотека Clipboard</a></span></p>
               <p>
                 <a href="#clipbrd_clear">Clipbrd.Clear</a><br>
@@ -1404,7 +1466,8 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
                 <a href="#lazutf8_pos">LazUtf8.Pos</a><br>
                 <a href="#lazutf8_uppercase">LazUtf8.UpperCase</a>
               </p>
-              <br>
+            </td>
+            <td class="indexcell">
               <p><span class="bold"><a href="#librarychar">Библиотека Char</a></span></p>
               <p>
                 <a href="#char_getunicodecategory">Char.GetUnicodeCategory</a><br>
@@ -1415,8 +1478,6 @@ bResult<span class="luasbl">,</span> sAnswer <span class="luasbl">=</span> <span
                 <a href="#char_isupper">Char.IsUpper</a>
               </p>
               <br>
-            </td>
-            <td class="indexcell">
               <p><span class="bold"><a href="#libraryos">Библиотека OS</a></span></p>
               <p>
                 <a href="#os_execute">os.execute</a><br>
