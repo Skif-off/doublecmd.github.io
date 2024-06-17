@@ -1108,6 +1108,18 @@
               <div class="cmdname"><a name="cm_CopyNetNamesToClip">cm_CopyNetNamesToClip</a></div></td>
             <td class="cmdhintcell">Только Windows: копировать в буфер имена с UNC-путём.</td>
           </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_MapNetworkDrive" alt="cm_MapNetworkDrive" src="../../pixmaps/dctheme/32x32/actions/cm_mapnetworkdrive.png">
+              <div class="cmdname"><a name="cm_MapNetworkDrive">cm_MapNetworkDrive</a><span class="versionref"><sup>(Альфа-версия)</sup></span></div>
+              <div class="shrtctkey">Ctrl+K</div></td>
+            <td class="cmdhintcell">Команда позволяет подключить сетевые устройства, поведение зависит от операционной системы:
+              <ul>
+                <li>Windows: вызывает системный диалог Windows для подключения сетевых дисков.</li>
+                <li>macOS: аналогично команде "Подключение к серверу" в Finder.</li>
+                <li>Linux и другие Unix-подобные системы: Double Commander предложит указать путь: вы можете использовать пути GVfs (подробнее смотрите в <a href="faq.html#gvfs">FAQ</a>) или указать локальный каталог. Таким образом, по результату работы эта команда схожа с командой <a href="#cm_EditPath">cm_EditPath</a>.</li>
+              </ul>
+            </td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>
