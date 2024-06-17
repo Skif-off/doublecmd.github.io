@@ -35,7 +35,6 @@
         <p>We can synchronize two local directories or a local directory and a directory on a virtual file system (an open archive or a directory in a file system plugin).</p>
         <p>By default, the synchronization tool compares files by name, size and modification date.</p>
         <p>The method of deleting files (to trash (recycle bin) or permanently) depends on the state of the <a href="configuration.html#ConfigOperations">Delete to recycle bin (Shift key reverses this setting)</a> option.</p>
-        <p>Note: Empty directories will be ignored.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -44,12 +43,13 @@
         <p class="figure"><img class="largeimage" title="Directory synchronization tool" alt="Directory synchronization tool" src="images/imgDC/syncdirs.png" width="742" height="446"></p>
         <p>In the top of the window there are fields with the current directories of the left and right file panels. We can change them manually or by using the button to choose a directory.</p>
         <p>Between them there is a field for filtering files by mask (symbol "*" means match any number of characters, symbol "?" means any one character). Files that do not match the mask will be ignored. We may put multiple file types here using a semicolon ";" without spaces between them. Also we can use search templates (<img title="Template..." alt="Template..." src="images/imgDC/btemplate.png" width="16" height="16">), including search with content plugins. The default value is "*" (all files).</p>
-        <p>The button with an arrow opens the list of the used file masks (keep in mind that Double Commander saves a general history of file masks for several tools: find files, directory synchronization, archive unpacking, commands for selecting a group of files). By default, Double Commander saves (regardless of the state of the <a href="configuration.html#ConfigDC">File mask history</a> option) the last used file mask as the default mask for the next run of the synchronization tool (if it is not a search template), see <a href="#asettings">Additional settings</a>.</p>
+        <p>The button with an arrow opens the list of the used file masks. By default, Double Commander saves (regardless of the state of the <a href="configuration.html#ConfigDC">File mask history</a> option) the last used file mask as the default mask for the next run of the synchronization tool (if it is not a search template), see <a href="#asettings">Additional settings</a>.</p>
         <p>To exclude directories and symbolic links to directories, we can use the search template and the <a href="findfiles.html#standard">Exclude subdirectories</a> field.</p>
         <p><span class="italic">Compare</span>&nbsp;&ndash; starts comparing the chosen directories. If necessary, the operation can be interrupted with the <kbd>Esc</kbd> key.</p>
         <p>Parameters:</p>
         <ul>
           <li><p><span class="italic">only selected (in main window)</span>&nbsp;&ndash; If enabled, only files and directories that have been selected in the file panel will be compared. It is enough to select files and directories only in one file panel.</p></li>
+          <li><p><span class="italic">empty directories</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; Also synchronize empty directories, not just files (with the same behavior in normal (symmetric) and asymmetric mode).</p></li>
           <li><p><span class="italic">asymmetric</span>&nbsp;&ndash; This option is meant to create a backup: a copy of the contents of the left panel should be created in the right panel. Files that do not exist on the left side will be marked for deletion on the right side. Not available if a delete operation is not possible in the directory on the right (for example, it is an archive and its format does not support modification, or it is a CD/DVD).</p></li>
           <li><p><span class="italic">Subdirs</span>&nbsp;&ndash; allows recursive file search: Double Commander will check the contents of all subdirectories.</p></li>
           <li><p><span class="italic">by content</span>&nbsp;&ndash; If enabled, files with the same size and date will be compared by content (a byte-by-byte comparison). Not available if the second directory is in a virtual file system.</p></li>
@@ -60,7 +60,7 @@
         <ul>
           <li><p><span class="italic">&gt;</span>&nbsp;&ndash; Show files to be copied or deleted on the left.</p></li>
           <li><p><span class="italic">=</span>&nbsp;&ndash; Show files that are considered identical with the current comparison parameters.</p></li>
-          <li><p><span class="italic">&#8800;</span>&nbsp;&ndash; Show non-identical files.</p></li>
+          <li><p><span class="italic">!=</span>&nbsp;&ndash; Show non-identical files.</p></li>
           <li><p><span class="italic">?</span>&nbsp;&ndash; Show files with the "unknown" status (for example, broken (or dangling) symbolic links or files that cannot be read when compared by content)</p></li>
           <li><p><span class="italic">&lt;</span>&nbsp;&ndash; Show files to be copied or deleted on the right.</p></li>
           <li><p><span class="italic">duplicates</span>&nbsp;&ndash; Show files that exist on both sides.</p></li>
@@ -80,7 +80,7 @@
           <li><p><span class="italic">Red</span>&nbsp;&ndash; Files with the same names, but not identical.</p></li>
           <li><p>For the rest of the files, the default text color will be used.</p></li>
         </ul>
-        <p>We can change them in the <a href="configuration.html#ConfigColor">Colors</a> settings section (the <span class="italic">Synchronize Directories</span> category).</p>
+        <p>We can change these colors, as well as the background colors of the selected items, in the <a href="configuration.html#ConfigColor">Colors</a> settings section (the <span class="italic">Synchronize Directories</span> category).</p>
         <p>Designations in the "&lt;=&gt;" column:</p>
         <ul>
           <li><p><img title="Unknown" alt="Unknown" src="images/imgDC/syncdirsstateu.png" width="14" height="14">&nbsp;&ndash; unknown;</p></li>
@@ -93,20 +93,24 @@
           <li><p><img title="Delete both" alt="Delete both" src="images/imgDC/syncdirsstatedb.png" width="14" height="14">&nbsp;&ndash; files will be deleted on both sides;</p></li>
           <li><p><img title="Do nothing" alt="Do nothing" src="images/imgDC/syncdirsstaten.png" width="14" height="14">&nbsp;&ndash; do nothing.</p></li>
         </ul>
-        <p>Using the mouse or the <kbd>Space</kbd> key, we can uncheck the action and exclude files from the synchronization operation.</p>
+        <p>Using the mouse (in the "&lt;=&gt;" column) or the <kbd>Space</kbd> key, we can change the action or uncheck the action and exclude files from the synchronization operation. The corresponding commands are also available, see <a href="#commands">below</a>.</p>
+        <p>Several files can be selected using the mouse click while holding down the <kbd>Ctrl</kbd> or <kbd>Shift</kbd> key; moving the mouse while holding down the left key also allows to select a group of files. Additionally, right‑click on the row with the subdirectory name will select all files in that directory.<span class="versionref"><sup>(Alpha version)</sup></span></p>
         <p>Double mouse clicking on a file name calls the <a href="help.html#cm_CompareContents">Compare by Contents</a> command.</p>
         <p>Using the keyboard shortcut <kbd>Ctrl+C</kbd>, we can copy the contents of all columns to the clipboard.</p>
         <p><span class="italic">Close</span>&nbsp;&ndash; closes the synchronization tool.</p>
         <p><span class="italic">Synchronize</span>&nbsp;&ndash; opens a dialog window for confirming the synchronization, the window displays some details about the upcoming actions:</p>
-        <p class="figure"><img class="largeimage" title="Synchronization tool: confirmation" alt="Synchronization tool: confirmation" src="images/imgDC/syncdirsconfirm.png" width="318" height="242"></p>
+        <p class="figure"><img class="largeimage" title="Synchronization tool: confirmation" alt="Synchronization tool: confirmation" src="images/imgDC/syncdirsconfirm.png" width="440" height="314"></p>
         <p>Here we can exclude the scheduled operations by type (copying or deleting) or direction.</p>
+        <p><span class="italic">Left: Delete all empty directories</span> and <span class="italic">Right: Delete all empty directories</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; After the synchronization is complete, Double Commander will also delete directories that became empty during the synchronization process or were empty before its launch.</p>
         <p><span class="italic">Confirm overwrites</span>&nbsp;&ndash; In case of a name collision, Double Commander will use the same dialog box with a choice of actions (skip, rename and others) as for usual copying/moving files.</p>
+        <p><span class="italic">Verify</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; If enabled, Double Commander will verify the success of the copying operationssee more details <a href="copymove.html">here</a>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
       <div>
         <h2><a name="commands">3. Commands</a></h2>
         <p>Commands are applied to the file under the cursor or to selected files. All commands available in the synchronization tool have been added to the right mouse button menu. We can assign or change hotkeys for this commands in the <a href="configuration.html#ConfigHotKeys">Keys&nbsp;&gt; Hot Keys</a> settings section (switch to the <span class="italic">Synchronize Directories</span> category).</p>
+        <p>When the menu is opened, unsuitable items will be automatically marked as unavailable.<span class="versionref"><sup>(Alpha version)</sup></span></p>
         <ul>
           <li><p><span class="italic">Select for copying (default direction)</span>&nbsp;&ndash; Double Commander will recheck the files and try to select an action automatically.</p></li>
           <li><p><span class="italic">Remove selection</span>&nbsp;&ndash; cancels the assigned action and excludes files from the synchronization process.</p></li>
@@ -122,7 +126,7 @@
           <li><p><span class="italic">-&gt; Delete right</span>.</p></li>
           <li><p><span class="italic">Delete on both sides</span>.</p></li>
         </ul>
-        <p>The last three commands delete the selected files immediately, before the synchronization operation. In this case, Double Commander will show a confirmation request.</p>
+        <p>The last three commands delete the selected files immediately, before the synchronization operation. In this case, Double Commander will show a confirmation request. If the <span class="italic">empty directories</span> option is not checked, the selected subdirectories will not be deleted when deleting the selected files (even if we will explicitly select those directories).<span class="versionref"><sup>(Alpha version)</sup></span></p>
         <p>Note: The hotkeys for the commands <span class="italic">View left</span>, <span class="italic">View right</span> and <span class="italic">Compare</span> are set in the source code of Double Commander and cannot be changed.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
