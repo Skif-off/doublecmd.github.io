@@ -40,6 +40,7 @@
               <dt>2.3. <a href="#plugs">Plugins from Total Commander do not work?!</a></dt>
               <dt>2.4. <a href="#gvfs">Can I get access to network resources like in Nautilus or Thunar?</a></dt>
               <dt>2.5. <a href="#tray">Clicking on the tray icon displays a menu with "Restore" and "Exit" items instead of restoring the window (GTK2 only).</a></dt>
+              <dt>2.6. <a href="#systheme">Why does the program's appearance not change or change only partially when switching the system theme? I have to close the program and open it again.</a></dt>
             </dl>
           </dd>
           <dt><a name="interface">3. Interface configuration</a></dt>
@@ -177,7 +178,7 @@
         <p>First, packages <tt>gvfs</tt>, <tt>gvfs-backends</tt> and <tt>gvfs-fuse</tt> should be installed.
           Keep in mind that some distributions have not packages <tt>gvfs-backends</tt> and <tt>gvfs-fuse</tt>,
           because they are part of package <tt>gvfs</tt>, or it can be several packages with names <tt>gvfs-backends-*</tt> or <tt>gvfs-*</tt>.</p>
-        <p>Now insert GVfs path in the address bar: click by right mouse button at address bar to edit it (or call internal command <tt>cm_EditPath</tt>).</p>
+        <p>Now insert GVfs path in the address bar: click by right mouse button at address bar to edit it (or call internal command <tt>cm_EditPath</tt>). Alternatively, you can use the internal command <a href="cmds.html#cm_MapNetworkDrive">cm_MapNetworkDrive</a>.<span class="versionref"><sup>(Alpha version)</sup></span></p>
         <p>For example, access to</p>
         <ul>
           <li>FTP: <code>ftp://ftpuser@ftpserver</code></li>
@@ -190,6 +191,10 @@
 
         <p class="bold"><a name="tray">Q: Clicking on the tray icon displays a menu with "Restore" and "Exit" items instead of restoring the window (GTK2 only).</a></p>
         <p><span class="bold">A:</span> Add a library of general system tray support: for example, package <tt>libappindicator1</tt> in Debian/Ubuntu or <tt>libappindicator-gtk2</tt> in Arch Linux.</p>
+        <br>
+
+        <p class="bold"><a name="systheme">Q: Why does the program's appearance not change or change only partially when switching the system theme? I have to close the program and open it again.</a></p>
+        <p><span class="bold">A:</span> GTK2 version? This is a feature of Lazarus, in this case, it does not update controls colors under GTK2.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
@@ -362,8 +367,8 @@
         <p class="bold"><a name="f34_regutf8">Q: How can I use regular expressions to search in UTF-8?</a></p>
         <p><span class="bold">A:</span> This feature has been added to version 1.0.0. Needs PCRE2 library with support 8-bit code units and Unicode support enabled (usually enabled by default):</p>
         <ul>
-          <li><p>Linux: needs <tt>libpcre2-8.so.0</tt>. For example, package <tt>libpcre2-8-0</tt> in Debian/Ubuntu or <tt>pcre2</tt> in Arch Linux.</p></li>
           <li><p>Windows: needs <tt>libpcre2-8.dll</tt> (by default, the Double Commander distribution contains this DLL).</p></li>
+          <li><p>Linux: needs <tt>libpcre2-8.so.0</tt>. For example, package <tt>libpcre2-8-0</tt> in Debian/Ubuntu or <tt>pcre2</tt> in Arch Linux.</p></li>
           <li><p>macOS: needs <tt>libpcre2-8.dylib</tt>.</p></li>
         </ul>
         <br>
