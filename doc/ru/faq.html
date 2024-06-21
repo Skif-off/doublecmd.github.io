@@ -174,13 +174,14 @@
         <p>Во-первых, должны быть установлены пакеты <tt>gvfs</tt>, <tt>gvfs-backends</tt> и <tt>gvfs-fuse</tt>.
           Имейте в виду, что в некоторых дистрибутивах нет пакетов <tt>gvfs-backends</tt> и <tt>gvfs-fuse</tt>,
           потому что они часть пакета <tt>gvfs</tt>, или же может быть несколько пакетов с именами <tt>gvfs-backends-*</tt> или <tt>gvfs-*</tt>.</p>
-        <p>Теперь вставьте путь GVfs в строку адреса: для редактирования щёлкните правой кнопкой мыши по панели текущего адреса (или вызовите внутреннюю команду <tt>cm_EditPath</tt>).</p>
+        <p>Теперь вставьте путь GVfs в строку адреса: для редактирования щёлкните правой кнопкой мыши по панели текущего адреса (или вызовите внутреннюю команду <tt>cm_EditPath</tt>). В качестве альтернативы вы можете использовать внутреннюю команду <a href="cmds.html#cm_MapNetworkDrive">cm_MapNetworkDrive</a>.</p>
         <p>Например, доступ к</p>
         <ul>
           <li>FTP: <code>ftp://ftpuser@ftpserver</code></li>
           <li>SMB: <code>smb://servername/sharename/</code></li>
           <li>WebDAV: <code>davs://servername</code></li>
         </ul>
+        <p>Список поддерживаемых протоколов смотрите в документации GVfs.</p>
         <p>Для доступа к FTP (и SSH+SCP тоже) и SMB вы можете использовать WFX-плагины <a href="plugins.html#ftp.wfx">FTP</a> и <a href="plugins.html#samba.wfx">Samba</a>.</p>
         <br>
 
