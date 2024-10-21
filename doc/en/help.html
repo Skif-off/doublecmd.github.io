@@ -219,8 +219,9 @@
         <p class="figure"><img class="largeimage" title="Calculate checksum" alt="Calculate checksum" src="images/imgDC/pic26.png" width="402" height="432"></p>
         <p><span class="italic">Save checksum file(s) to:</span>&nbsp;&ndash; line specifies name and path to the calculated checksum.</p>
         <p><span class="italic">Create separate checksum files for each file</span>&nbsp;&ndash; if checksum calculates for multiple files, this option allows to create separate checksum files for each target file.</p>
+        <p><span class="italic">Create separate checksum file for each directory</span><span class="versionref"><sup>(Alpha version)</sup></span>&nbsp;&ndash; Double Commander will scan the selected folders or the folder under the cursor and create separate checksum files in each subdirectory. The program will not take into account the <a href="configuration.html#ConfigIgnore">ignore list</a> and the status of the <a href="configuration.html#ConfigViewEx">Show system and hidden files</a> option.</p>
+        <p><span class="italic">Open checksum file after job is completed</span>&nbsp;&ndash; after the operation is completed, the checksum file will be opened in the <a href="viewer.html">file viewer</a>.</p>
         <p><span class="italic">File format</span>&nbsp;&ndash; allows to specify the line ending type and directory separator instead of the commonly used values in Windows (CRLF and "\") and Unix-like systems (LF and "/").</p>
-        <p><span class="italic">Choose your preferred checksum and</span>&nbsp;&ndash; select algorithm which will calculate checksums.</p>
 
         <p>Item <a name="cm_CheckSumVerify"><span class="bold">Verify Checksum...</span></a> (internal command <tt>cm_CheckSumVerify</tt>) will start verification the list of checksums from the checksum file under the cursor. Also you can run this command by double mouse clicking on the checksum file (or using the <kbd>Enter</kbd> key).</p>
         <p>Double Commander can check files one by one: select the file, run this command, now enter its checksum (or paste from the clipboard) and select the algorithm.</p>
