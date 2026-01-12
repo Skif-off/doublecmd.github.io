@@ -1233,6 +1233,111 @@
               <div class="cmdname"><a name="cm_MainFontZoomIn">cm_MainFontZoomIn</a></div></td>
             <td class="cmdhintcell">Увеличить размер основного шрифта (для файловых панелей).</td>
           </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_SetSortMode" alt="cm_SetSortMode" src="../../pixmaps/dctheme/32x32/actions/cm_setsortmode.png">
+              <div class="cmdname"><a name="cm_SetSortMode">cm_SetSortMode</a><span class="versionref"><sup>(Альфа-версия)</sup></span></div></td>
+            <td class="cmdhintcell">Команда позволяет изменить параметры сортировки в разделе настроек <a href="configuration.html#ConfigView">Список файлов</a>.<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Параметр</th>
+                  <th class="innerdescheader">Значение</th>
+                  <th class="innerdescheader">Описание</th>
+                </tr>
+                <tr>
+                  <td colspan="3">Метод сортировки задаётся сочетанием двух параметров:</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="2">natural</td>
+                  <td class="innerdescvaluecell">1/true/on/yes</td>
+                  <td class="innerdescdesccell">естественная сортировка</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">0/false/off/no</td>
+                  <td class="innerdescdesccell">алфавитная сортировка</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="2">special</td>
+                  <td class="innerdescvaluecell">1/true/on/yes</td>
+                  <td class="innerdescdesccell">с сортировкой спецсимволов</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">0/false/off/no</td>
+                  <td class="innerdescdesccell">без учёта спецсимволов</td>
+                </tr>
+                <tr>
+                  <td colspan="3">Чувствительность к регистру:</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="3">casesensitivity</td>
+                  <td class="innerdescvaluecell">notsensitive</td>
+                  <td class="innerdescdesccell">не чувствителен к регистру</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">locale</td>
+                  <td class="innerdescdesccell">соответственно локальным установкам (аАбБгГ)</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">charvalue</td>
+                  <td class="innerdescdesccell">сначала верхний регистр, потом нижний (АБВабв)</td>
+                </tr>
+                <tr>
+                  <td colspan="3">Сортировка каталогов:</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="3">foldermode</td>
+                  <td class="innerdescvaluecell">nameshowfirst</td>
+                  <td class="innerdescdesccell">сортировать по имени и показывать первыми</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">likefileshowfirst</td>
+                  <td class="innerdescdesccell">сортировать как файлы и показывать первыми</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">likefile</td>
+                  <td class="innerdescdesccell">сортировать как файлы</td>
+                </tr>
+                <tr>
+                  <td colspan="3">Вставлять новые файлы:</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="4">newfiles</td>
+                  <td class="innerdescvaluecell">top</td>
+                  <td class="innerdescdesccell">вверху списка файлов</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">topafterdirectories</td>
+                  <td class="innerdescdesccell">после каталогов (если каталоги отсортированы перед файлами)</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">sortedposition</td>
+                  <td class="innerdescdesccell">в отсортированной позиции</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">bottom</td>
+                  <td class="innerdescdesccell">внизу списка файлов</td>
+                </tr>
+                <tr>
+                  <td colspan="3">Перемещать изменённые файлы:</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="3">updatedfiles</td>
+                  <td class="innerdescvaluecell">nochange</td>
+                  <td class="innerdescdesccell">не менять позицию</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">sameasnewfiles</td>
+                  <td class="innerdescdesccell">использовать то же, что и для новых файлов</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">sortedposition</td>
+                  <td class="innerdescdesccell">в отсортированной позиции</td>
+                </tr>
+              </table>
+              <br>
+              Команда также инициирует обновление содержимого активной и неактивной панелей.
+            </td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(наверх)</a></p>
       </div>

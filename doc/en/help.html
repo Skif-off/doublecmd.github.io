@@ -187,8 +187,9 @@
         </ul>
         <p>Also we can unpack files via <a name="cm_ExtractFiles"><span class="bold">Extract Files</span></a> (internal command <tt>cm_ExtractFiles</tt>). The same dialog is called when you copy files from the archive.</p>
         <p class="figure"><img class="largeimage" title="Unpack" alt="Unpack" src="images/imgDC/pic23.png" width="480" height="246"></p>
-        <p>In the <span class="italic">Extract files matching file mask</span> line, you can specify a mask, determining which files will be unpacked. The history of masks can be found in the drop-down list.
-          The next line specifies the destination directory (where the archive will be unpacked). It can be changed manually or by clicking on the browse button at the far right.</p>
+        <p>In the <span class="italic">Extract files matching file mask</span> line, you can specify a mask, determining which files will be unpacked. The history of masks can be found in the drop-down list.</p>
+        <p>Note: Keep in mind that Double Commander saves a general history of file masks for several tools: find files, archive unpacking, commands for selecting a group of files.</p>
+        <p>The next line specifies the destination directory (where the archive will be unpacked). It can be changed manually or by clicking on the browse button at the far right.</p>
         <p><span class="italic">Unpack each archive to a separate subdir (name of the archive)</span>&nbsp;&ndash; If checked, Double Commander will create a folder with the same name as the archive in the destination directory and extract the files into this folder. You can extract several archives at once with this option and each will be extracted into its own folder in the target directory. The indeterminate checkbox state (three-state) enables the smart extract: if there are several objects in the root of the archive, then the contents of the archive will be unpacked into a folder with the name of the archive, but if there is one object, then the contents will be unpacked as is. By default it is unchecked and its state is not saved for the next call of the extract command.</p>
         <p><span class="italic">Unpack path names if stored with files</span>&nbsp;&ndash; If checked, the directory structure in the archive will be kept. Otherwise, all files will be extracted without re-creating the directory structure.</p>
         <p>Checkbox <span class="italic">Overwrite existing files</span> disables confirmation of overwriting existing files.</p>
@@ -240,7 +241,9 @@
       <div>
         <h2><a name="mnu_select">2.1.2. "Mark"</a></h2>
         <p>There are some commands in this group with which you can select files in different ways.</p>
-        <p>First and second items <span class="bold"><a name="cm_MarkPlus">Select a Group</a></span> and <span class="bold"><a name="cm_MarkMinus">Unselect a Group</a></span> (internal commands <tt>cm_MarkPlus</tt> and <tt>cm_MarkMinus</tt>). These commands select groups of files by a mask. With this mask you can specify file names or extensions (you can specify several values separated by semicolons ";" without spaces). Also there is a drop-down list with masks history. For example, select all files that have the <tt>.txt</tt> extension:</p>
+        <p>First and second items <span class="bold"><a name="cm_MarkPlus">Select a Group</a></span> and <span class="bold"><a name="cm_MarkMinus">Unselect a Group</a></span> (internal commands <tt>cm_MarkPlus</tt> and <tt>cm_MarkMinus</tt>). These commands select groups of files by a mask. With this mask you can specify file names or extensions (you can specify several values separated by semicolons ";" without spaces). Also there is a drop-down list with masks history.</p>
+        <p>Note: Keep in mind that Double Commander saves a general history of file masks for several tools: find files, archive unpacking, commands for selecting a group of files.</p>
+        <p>For example, select all files that have the <tt>txt</tt> extension:</p>
         <p class="figure"><img class="largeimage" title="Select a group" alt="Select a group" src="images/imgDC/pic27.png" width="333" height="332"></p>
         <p>The <span class="italic">Define...</span> button allows to create a new search template.</p>
         <p>If the <a href="findfiles.html#advanced">duplicate search</a> result is open in the active panel, these commands will work in a special mode:</p>

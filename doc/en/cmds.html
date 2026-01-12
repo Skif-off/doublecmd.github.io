@@ -1235,6 +1235,111 @@
               <div class="cmdname"><a name="cm_MainFontZoomIn">cm_MainFontZoomIn</a></div></td>
             <td class="cmdhintcell">Increase the main font (for file panels) size.</td>
           </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_SetSortMode" alt="cm_SetSortMode" src="../../pixmaps/dctheme/32x32/actions/cm_setsortmode.png">
+              <div class="cmdname"><a name="cm_SetSortMode">cm_SetSortMode</a><span class="versionref"><sup>(Alpha version)</sup></span></div></td>
+            <td class="cmdhintcell">This command allows to change the sorting options in the <a href="configuration.html#ConfigView">Files views</a> settings section.<br>
+              <br>
+              <table class="innercmddesc">
+                <tr class="rowinnerdesc">
+                  <th class="innerdescheader">Parameter</th>
+                  <th class="innerdescheader">Value</th>
+                  <th class="innerdescheader">Description</th>
+                </tr>
+                <tr>
+                  <td colspan="3">Sort method is specified by a combination of two parameters:</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="2">natural</td>
+                  <td class="innerdescvaluecell">1/true/on/yes</td>
+                  <td class="innerdescdesccell">natural sorting</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">0/false/off/no</td>
+                  <td class="innerdescdesccell">alphabetical sorting</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="2">special</td>
+                  <td class="innerdescvaluecell">1/true/on/yes</td>
+                  <td class="innerdescdesccell">with special characters sort</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">0/false/off/no</td>
+                  <td class="innerdescdesccell">excluding special characters</td>
+                </tr>
+                <tr>
+                  <td colspan="3">Case sensitivity:</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="3">casesensitivity</td>
+                  <td class="innerdescvaluecell">notsensitive</td>
+                  <td class="innerdescdesccell">not case sensitive</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">locale</td>
+                  <td class="innerdescdesccell">according to locale settings (aAbBcC)</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">charvalue</td>
+                  <td class="innerdescdesccell">first upper then lower case (ABCabc)</td>
+                </tr>
+                <tr>
+                  <td colspan="3">Sorting directories:</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="3">foldermode</td>
+                  <td class="innerdescvaluecell">nameshowfirst</td>
+                  <td class="innerdescdesccell">sort by name and show first</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">likefileshowfirst</td>
+                  <td class="innerdescdesccell">sort like files and show first</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">likefile</td>
+                  <td class="innerdescdesccell">sort like files</td>
+                </tr>
+                <tr>
+                  <td colspan="3">Insert new files:</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="4">newfiles</td>
+                  <td class="innerdescvaluecell">top</td>
+                  <td class="innerdescdesccell">at the top of the file list</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">topafterdirectories</td>
+                  <td class="innerdescdesccell">after directories (if directories are sorted before files)</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">sortedposition</td>
+                  <td class="innerdescdesccell">at sorted position</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">bottom</td>
+                  <td class="innerdescdesccell">at the bottom of the file list</td>
+                </tr>
+                <tr>
+                  <td colspan="3">Move updated files:</td>
+                </tr>
+                <tr>
+                  <td class="innerdescparamcell" rowspan="3">updatedfiles</td>
+                  <td class="innerdescvaluecell">nochange</td>
+                  <td class="innerdescdesccell">don't change position</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">sameasnewfiles</td>
+                  <td class="innerdescdesccell">use the same setting as for new files</td>
+                </tr>
+                <tr>
+                  <td class="innerdescvaluecell">sortedposition</td>
+                  <td class="innerdescdesccell">to sorted position</td>
+                </tr>
+              </table>
+              <br>
+              The command also initiates a refresh of the contents of the active and inactive panels.
+            </td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
