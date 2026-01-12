@@ -309,7 +309,7 @@
                 <tr>
                   <td class="innerdescparamcell" rowspan="5">column</td>
                   <td class="innerdescvaluecell">name</td>
-                  <td class="innerdescdesccell">sorted columns will be the "name-ext"</td>
+                  <td class="innerdescdesccell">sorted columns will be the "name"</td>
                 </tr>
                 <tr>
                   <td class="innerdescvaluecell">ext</td>
@@ -1110,6 +1110,18 @@
               <div class="cmdname"><a name="cm_CopyNetNamesToClip">cm_CopyNetNamesToClip</a></div></td>
             <td class="cmdhintcell">Windows only: copy names with UNC path.</td>
           </tr>
+         <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_MapNetworkDrive" alt="cm_MapNetworkDrive" src="../../pixmaps/dctheme/32x32/actions/cm_mapnetworkdrive.png">
+              <div class="cmdname"><a name="cm_MapNetworkDrive">cm_MapNetworkDrive</a></div>
+              <div class="shrtctkey">Ctrl+K</div></td>
+            <td class="cmdhintcell">This command allows to connect network devices, the behavior depends on the operating system:
+              <ul>
+                <li>Windows: will call the Windows system dialog to connect network drives.</li>
+                <li>macOS: similar to the "Connect to Server" command in Finder.</li>
+                <li>Linux and other Unix-like systems: Double Commander will prompt to specify the path, you can use GVfs paths (see <a href="faq.html#gvfs">FAQ</a> for more details) or specify a local directory. Thus, the result of this command is similar to the <a href="#cm_EditPath">cm_EditPath</a> command.</li>
+              </ul>
+            </td>
+          </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
@@ -1212,6 +1224,16 @@
                 </tr>
               </table>
             </td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_MainFontZoomOut" alt="cm_MainFontZoomOut" src="../../pixmaps/dctheme/32x32/actions/cm_mainfontzoomout.png">
+              <div class="cmdname"><a name="cm_MainFontZoomOut">cm_MainFontZoomOut</a></div></td>
+            <td class="cmdhintcell">Decrease the main font (for file panels) size.</td>
+          </tr>
+          <tr>
+            <td class="cmdcell"><img class="IntCmdImage" title="cm_MainFontZoomIn" alt="cm_MainFontZoomIn" src="../../pixmaps/dctheme/32x32/actions/cm_mainfontzoomin.png">
+              <div class="cmdname"><a name="cm_MainFontZoomIn">cm_MainFontZoomIn</a></div></td>
+            <td class="cmdhintcell">Increase the main font (for file panels) size.</td>
           </tr>
         </table>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
@@ -2587,7 +2609,7 @@
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_RenameTab" alt="cm_RenameTab" src="../../pixmaps/dctheme/32x32/actions/cm_renametab.png">
               <div class="cmdname"><a name="cm_RenameTab">cm_RenameTab</a></div></td>
-            <td class="cmdhintcell">Prompt user to rename current tab of active panel.</td>
+            <td class="cmdhintcell">Prompt user to rename current tab of active panel.<br>Also you can specify a new tab name as a parameter.</td>
           </tr>
           <tr>
             <td class="cmdcell"><img class="IntCmdImage" title="cm_CloseTab" alt="cm_CloseTab" src="../../pixmaps/dctheme/32x32/actions/cm_closetab.png">

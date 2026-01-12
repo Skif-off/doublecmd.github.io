@@ -52,7 +52,7 @@
               <dt>3.4. <a href="#icons">How to associate my own icons with some file types?</a></dt>
               <dt>3.5. <a href="#splitter">How to create a splitter on the buttons panel?</a></dt>
               <dt>3.6. <a href="#theme">Does DC has other icon themes?</a></dt>
-              <dt>3.7. <a href="#cs_size">How to make function keys and address bar bigger?</a></dt>
+              <dt>3.7. <a href="#cs_size">How to make function keys, address bar and other interface elements bigger?</a></dt>
               <dt>3.8. <a href="#height">File panels: how to change the height of elements (strings) and the intervals between them?</a></dt>
             </dl>
           </dd>
@@ -70,6 +70,7 @@
               <dt>4.9. <a href="#set_property">In some cases I see warning "Can not set [attributes, date/time, owner/group or permissions] for xxx" when I copy or move files, I want that DC use action "skip"/"skip all" by default. How I can do it?</a></dt>
               <dt>4.10. <a href="#admin_shares">Why doesn't the program show a list of admin shares?</a></dt>
               <dt>4.11. <a href="#hotkey_controls">I assigned the left and right arrows to navigate back and forth through the directory history, but now I can't use them while renaming a file. How to fix it?</a></dt>
+              <dt>4.12. <a href="#sound_notifications">Is there a way to add sound notifications when operations are completed?</a></dt>
             </dl>
           </dd>
           <dt><a name="viewer">5. Issues related to the built-in viewer (<kbd>F3</kbd>) and editor (<kbd>F4</kbd>)</a></dt>
@@ -178,7 +179,7 @@
         <p>First, packages <tt>gvfs</tt>, <tt>gvfs-backends</tt> and <tt>gvfs-fuse</tt> should be installed.
           Keep in mind that some distributions have not packages <tt>gvfs-backends</tt> and <tt>gvfs-fuse</tt>,
           because they are part of package <tt>gvfs</tt>, or it can be several packages with names <tt>gvfs-backends-*</tt> or <tt>gvfs-*</tt>.</p>
-        <p>Now insert GVfs path in the address bar: click by right mouse button at address bar to edit it (or call internal command <tt>cm_EditPath</tt>).</p>
+        <p>Now insert GVfs path in the address bar: click by right mouse button at address bar to edit it (or call internal command <tt>cm_EditPath</tt>). Alternatively, you can use the internal command <a href="cmds.html#cm_MapNetworkDrive">cm_MapNetworkDrive</a>.</p>
         <p>For example, access to</p>
         <ul>
           <li>FTP: <code>ftp://ftpuser@ftpserver</code></li>
@@ -254,19 +255,13 @@
           Now restart DC, go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Icons&nbsp;&gt; Icon theme, choose your theme and restart DC again.</p>
         <br>
 
-        <p class="bold"><a name="cs_size">Q: How to make function keys and address bar bigger?</a></p>
-        <p><span class="bold">A:</span> The size depends on the font size, three ways exists:</p>
-        <p>1. Simple and fast: you can use <kbd>Ctrl</kbd>+mouse wheel, it works for the following interface elements or part of DC:<br>
-          -&nbsp;file list in left and right panels;<br>
-          -&nbsp;current directory (address) bar;<br>
-          -&nbsp;function key buttons bar;<br>
-          -&nbsp;TreeView menu;<br>
-          -&nbsp;search results in find files dialog;<br>
-          -&nbsp;internal editor;<br>
-          -&nbsp;internal viewer (if viewer shows text then this action will change font size, if image then action will work as zoom in/zoom out commands).</p>
+        <p class="bold"><a name="cs_size">Q: How to make function keys, address bar and other interface elements bigger?</a></p>
+        <p><span class="bold">A:</span> The size depends on the font size, several ways exists:</p>
+        <p>1. Simple and fast: you can use <kbd>Ctrl</kbd>+mouse wheel, see <a href="configuration.html#ConfigMouse">Zoom</a>.</p>
         <p>2. Go to "Configuration" in the main menu&nbsp;&gt; Options...&nbsp;&gt; Fonts.<br>
           Note: All possible are available in version 1.0.0+ only, for 0.9.x and below additionally see the third item.</p>
-        <p>3. Close DC&nbsp;&gt; open <tt>doublecmd.xml</tt>&nbsp;&gt; find tag <code>&lt;Fonts&gt;&lt;/Fonts&gt;</code> and change <code>&lt;Size&gt;</code> of the interface element manually.</p>
+        <p>3. For file panels, you can use the internal commands <a href="cmds.html#cm_MainFontZoomOut">cm_MainFontZoomOut</a> and <a href="cmds.html#cm_MainFontZoomIn">cm_MainFontZoomIn</a>. Similar commands are available in the built-in viewer and editor.</p>
+        <p>4. Close DC&nbsp;&gt; open <tt>doublecmd.xml</tt>&nbsp;&gt; find tag <code>&lt;Fonts&gt;&lt;/Fonts&gt;</code> and change <code>&lt;Size&gt;</code> of the interface element manually.</p>
         <br>
 
         <p class="bold"><a name="height">Q: File panels: how to change the height of elements (strings) and the intervals between them?</a></p>
@@ -337,6 +332,10 @@
 
         <p class="bold"><a name="hotkey_controls">Q: I assigned the left and right arrows to navigate back and forth through the directory history, but now I can't use them while renaming a file. How to fix it?</a></p>
         <p><span class="bold">A:</span> When assigning a hot key, Double Commander allows to limit the scope of the keyboard shortcut, see <a href="configuration.html#ConfigHotKeys">Only for these controls</a>.<br>In this case, you need to enable the "Files Panel".</p>
+        <br>
+
+        <p class="bold"><a name="sound_notifications">Q: Is there a way to add sound notifications when operations are completed?</a></p>
+        <p><span class="bold">A:</span> See description of <a href="configxml.html">&lt;Sounds&gt;</a>.</p>
         <p class="navback"><a href="#topofpage">(back to top)</a></p>
       </div>
 
